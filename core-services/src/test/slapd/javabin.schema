@@ -1,0 +1,35 @@
+# Root IOD: 1.3.6.1.4.1.1
+#
+# root.1 (Attribute Types)
+# root.2 (Syntaxes)
+# root.3 (Object Classes)
+# root.4 (Matching Rules)
+# root.5 (Controls)
+# root.6 (Extended Operations)
+# root.7 (Access Control Information)
+# root.8 (Features)
+# root.10 (Misc LDAP elements)
+# root.11 (Self-contained Works in Progress)
+#
+# 1.3.6.1.4.1.1466.115.121.1.26: IA5 String
+
+attributetype ( 1.3.6.1.4.1.1.1.1
+  NAME 'imAccount'
+  DESC 'Instant messaging account'
+  EQUALITY caseIgnoreIA5Match
+  SUBSTR caseIgnoreIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{256} )
+
+attributetype ( 1.3.6.1.4.1.1.1.2
+  NAME 'primaryImAccount'
+  DESC 'Primary instant messaging account'
+  EQUALITY caseIgnoreIA5Match
+  SUBSTR caseIgnoreIA5SubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.26{256}
+  SINGLE-VALUE )
+
+objectclass ( 1.3.6.1.4.1.1.3.1
+  NAME 'javabinPerson'
+	DESC 'javaBin person'
+	SUP top AUXILIARY
+	MAY ( primaryImAccount $ imAccount ) )

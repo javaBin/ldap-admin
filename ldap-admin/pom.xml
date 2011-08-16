@@ -1,0 +1,35 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>no.java.portal</groupId>
+    <artifactId>portal</artifactId>
+    <version>2</version>
+  </parent>
+  <artifactId>ldap-admin</artifactId>
+  <version>1.0-alpha-3-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>LDAP Admin</name>
+  <repositories>
+    <repository>
+      <id>Struts 2 Plugin Maven Repository</id>
+      <url>http://struts2plugin-maven-repo.googlecode.com/svn/trunk/</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>    
+  </repositories>
+  <modules>
+    <module>ldap-admin-web</module>
+  </modules>
+  <profiles>
+    <profile>
+      <id>web-test</id>
+      <modules>
+        <module>ldap-admin-web-test</module>
+      </modules>
+    </profile>
+  </profiles>
+</project>

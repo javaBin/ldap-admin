@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+  <package name="ldapAdmin" extends="struts-default">
+
+    <interceptors>
+      <interceptor name="javaBinSecurity" class="no.java.admin.web.struts.JavaBinSecurityInterceptor"/>
+
+      <interceptor-stack name="ldapAdminStack">
+        <interceptor-ref name="javaBinSecurity"/>
+        <interceptor-ref name="defaultStack"/>
+        <interceptor-ref name="validation"/>
+      </interceptor-stack>
+    </interceptors>
+
+    <default-interceptor-ref name="ldapAdminStack"/>
+
+    <global-results>
+      <result name="data-quality-report-detail">/data-quality-report-detail.jspx</result>
+
+      <result name="group-detail">/group-detail.jspx</result>
+      <result name="group-list">/group-list.jspx</result>
+
+      <result name="index" type="chain">index</result>
+
+      <result name="report-list">/report-list.jspx</result>
+
+      <result name="user-list">/user-list.jspx</result>
+      <result name="user-search">/user-search.jspx</result>
+      <result name="user-detail">/user-detail.jspx</result>
+
+      <result name="user-request-detail">/user-request-detail.jspx</result>
+      <result name="user-request-admin-detail">/user-request-admin-detail.jspx</result>
+      <result name="user-request-admin-list">/user-request-admin-list.jspx</result>
+    </global-results>
+
+    <action name="authentication" class="no.java.admin.web.action.AuthenticationAction">
+      <result name="show-login">/login.jspx</result>
+      <result name="logout" type="redirect">
+        <param name="location">/</param>
+      </result>
+    </action>
+
+    <action name="dataQualityReport" class="no.java.admin.web.action.DataQualityReportAction"/>
+
+    <action name="group" class="no.java.admin.web.action.GroupAction">
+      <result name="stored" type="chain">
+        <param name="actionName">group</param>
+        <param name="method">show</param>
+      </result>
+    </action>
+
+    <action name="index" class="no.java.admin.web.action.IndexAction">
+      <result name="index">/welcome.jspx</result>
+    </action>
+
+    <action name="lookup" class="no.java.admin.web.action.LookupAction">
+      <result name="found-user" type="redirect">
+        <param name="location">users/${uid}</param>
+      </result>
+    </action>
+
+    <action name="report" class="no.java.admin.web.action.ReportAction"/>
+
+    <action name="search" class="no.java.admin.web.action.SearchAction"/>
+
+    <action name="user" class="no.java.admin.web.action.UserAction">
+      <result name="stored" type="chain">
+        <param name="actionName">user</param>
+        <param name="method">show</param>
+      </result>
+      <result name="deleted" type="chain">
+        <param name="actionName">user</param>
+        <param name="method">list</param>
+      </result>
+      <result name="password-reset" type="chain">
+        <param name="actionName">user</param>
+        <param name="method">show</param>
+      </result>
+    </action>
+
+    <action name="userRequest" class="no.java.admin.web.action.UserRequestAction"/>
+
+    <action name="storeUserRequest" class="no.java.admin.web.action.StoreUserRequestAction">
+      <result name="input">/user-request-detail.jspx</result>
+    </action>
+
+    <action name="userRequestAdmin" class="no.java.admin.web.action.UserRequestAdminAction">
+      <result name="input">/user-request-admin-detail.jspx</result>
+      <result name="user-request-admin-accepted" type="chain">
+        <param name="actionName">user</param>
+        <param name="method">show</param>
+      </result>
+      <result name="user-request-admin-rejected" type="chain">
+        <param name="actionName">user</param>
+        <param name="method">list</param>
+      </result>
+    </action>
+
+  </package>
+
+  <package name="ldap-admin-json" extends="json-default">
+
+    <result-types>
+      <result-type name="json-validation-aware" class="no.java.admin.web.struts.JsonValidationAwareResult"/>
+    </result-types>
+
+    <interceptors>
+      <interceptor name="javaBinSecurity" class="no.java.admin.web.struts.JavaBinSecurityInterceptor"/>
+<!--
+      <interceptor name="json-validation" class="no.java.admin.web.struts.JsonValidationAwareResult"/>
+-->
+
+      <interceptor-stack name="ldap-admin-json">
+        <interceptor-ref name="javaBinSecurity"/>
+        <interceptor-ref name="json"/>
+        <interceptor-ref name="validation"/>
+      </interceptor-stack>
+    </interceptors>
+
+    <default-interceptor-ref name="ldap-admin-json"/>
+
+    <action name="json-userRequestService" class="no.java.admin.web.action.json.JsonUserRequestServiceAction">
+      <result type="json-validation-aware"/>
+    </action>
+
+    <action name="json-userService" class="no.java.admin.web.action.json.JsonUserServiceAction">
+      <result type="json-validation-aware"/>
+    </action>
+  </package>
+
+</struts>

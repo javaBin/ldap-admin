@@ -1,0 +1,291 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:jsp="http://java.sun.com/JSP/Page"
+      xmlns:s="/struts-tags"
+      xmlns:ldapadmin="urn:jsptagdir:/WEB-INF/tags/ldapadmin"
+      xmlns:tabletags="/tabletags">
+<jsp:directive.page contentType="text/html"/>
+<head>
+  <title>User</title>
+  <script type="text/javascript">
+    /*
+     * User form
+     */
+
+    function onStoreUser() {
+      var form = $("user_form");
+      var user = createUserFromForm(form)
+
+      log("user: " + Object.toJSON(user));
+
+      UserService.store(user, function() {
+        MessageBox.showInformation("user", "User updated")
+      }, createDefaultFailureHandler("user"))
+    }
+
+    function onDeleteUser(uid) {
+      UserService.deleteUser(uid, function() {
+        window.location.replace(createUrl("users"))
+      }, createDefaultFailureHandler("password"));
+    }
+
+    function onSetPassword(uid) {
+      var form = $("password_form");
+      var password1 = form['password1'].value
+      var password2 = form['password2'].value
+
+      if (password1 == "") {
+        MessageBox.showError("password", "The password can't be blank")
+        return
+      }
+
+      if (password1 != password2) {
+        MessageBox.showError("password", "The passwords doesn't match")
+        return
+      }
+
+      UserService.setPassword(uid, password1, function() {
+        MessageBox.showInformation("password", "Password updated")
+        form['password1'].value = ""
+        form['password2'].value = ""
+      }, createDefaultFailureHandler("password"));
+    }
+
+    function onGeneratePassword(uid) {
+      UserService.generatePassword(uid, function(password) {
+        MessageBox.showInformation("password", "New password: " + password)
+      }, createDefaultFailureHandler("password"));
+    }
+
+    function createUserFromForm(form) {
+        return {
+            uid: $('uid').innerHTML,
+            firstName: form['firstName_input'].value,
+            lastName: form['lastName_input'].value,
+            mail: form['mail_input'].value,
+            mobilePhoneNumber: form['mobilePhoneNumber_input'].value
+        };
+    }
+
+    /*
+     * Group form
+     */
+    function onAdd(uid) {
+      var availableGroups = $("availableGroups");
+      var currentGroups = $("currentGroups");
+
+      var i = availableGroups.selectedIndex
+
+      if (i == -1) {
+        return;
+      }
+
+      var option = availableGroups.options[i]
+
+      UserService.addGroup(uid, option.value,
+              function() {
+                availableGroups.remove(i)
+                currentGroups.add(option, null)
+                MessageBox.showInformation("groups", "Group added")
+              }, createDefaultFailureHandler("groups"))
+    }
+
+    function onRemove(uid) {
+      var availableGroups = $("availableGroups");
+      var currentGroups = $("currentGroups");
+
+      var i = currentGroups.selectedIndex
+
+      if (i == -1) {
+        return;
+      }
+
+      var option = currentGroups.options[i]
+
+      UserService.removeGroup(uid, option.value,
+              function() {
+                currentGroups.remove(i)
+                availableGroups.add(option, null)
+                MessageBox.showInformation("groups", "Group removed")
+              }, createDefaultFailureHandler("groups"))
+    }
+  </script>
+</head>
+<body>
+<span id="uid" style="display: none;"><s:property value="%{user.uid}"/></span>
+<form id="user_form" action="">
+  <div id="user_details" class="h3">
+    <div class="h4">
+      <h4>Details</h4>
+    </div>
+    <div class="axial">
+      <ldapadmin:message-box id="user"/>
+      <s:if test="canEditDetails">
+        <table id="user_rw">
+          <tr>
+            <th>Uid</th>
+            <td><s:property value="%{user.uid}"/></td>
+          </tr>
+          <tr>
+            <th>First Name</th>
+            <td>
+              <s:set name="firstName" value="%{user.firstName}"/>
+              <input name="firstName_input" value="${firstName}"/>
+            </td>
+          </tr>
+          <tr>
+            <th>Last Name</th>
+            <td>
+              <s:set name="lastName" value="%{user.lastName}"/>
+              <input name="lastName_input" value="${lastName}"/>
+            </td>
+          </tr>
+          <tr>
+            <th>Mail</th>
+            <td>
+              <s:set name="mail" value="%{user.mail}"/>
+              <input name="mail_input" value="${mail}"/>
+            </td>
+          </tr>
+          <tr>
+            <th>Mobile</th>
+            <td>
+              <s:set name="mobilePhoneNumber" value="%{user.mobilePhoneNumber}"/>
+              <input name="mobilePhoneNumber_input" value="${mobilePhoneNumber}"/>
+            </td>
+          </tr>
+        </table>
+        <div class="functnbar3">
+          <input type="button" onclick="onStoreUser()" value="Store"/>
+          <input type="button" onclick="onDeleteUser($('uid').innerHTML)" value="Delete"/>
+        </div>
+      </s:if>
+      <s:else>
+        <table id="user_ro">
+          <tr>
+            <th>Uid</th>
+            <td><s:property value="%{user.uid}"/></td>
+          </tr>
+          <tr>
+            <th>First Name</th>
+            <td><s:property value="%{user.firstName}"/></td>
+          </tr>
+          <tr>
+            <th>Last Name</th>
+            <td><s:property value="%{user.lastName}"/></td>
+          </tr>
+          <tr>
+            <th>Mail</th>
+            <td><s:property value="%{user.mail}"/></td>
+          </tr>
+          <tr>
+            <th>Mobile</th>
+            <td><s:property value="%{user.mobilePhoneNumber}"/></td>
+          </tr>
+        </table>
+      </s:else>
+    </div>
+  </div>
+</form>
+
+<form id="groups_form" action="">
+  <div class="h3">
+    <div class="h4">
+      <h4>Groups</h4>
+    </div>
+    <div class="axial">
+      <ldapadmin:message-box id="groups"/>
+      <table id="groups">
+        <tr>
+          <th>Groups</th>
+          <td>
+            <s:if test="canEditGroups">
+              <table>
+                <tr>
+                  <td>
+                    <s:bean name="org.apache.struts2.util.Sorter" id="sorter"/>
+                    <s:sort comparator="#sorter.ascending" source="availableGroups">
+                      <select id="availableGroups" size="10" style="width: 150px; display: inline;">
+                        <s:iterator>
+                          <option><s:property/></option>
+                        </s:iterator>
+                      </select>
+                    </s:sort>
+                  </td>
+                  <td style="vertical-align: middle;">
+                    <s:url id="baseurl" value="/"/>
+                    <img src="${baseurl}tango/32x32/actions/go-next.png" alt="Add" onclick="onAdd($('uid').innerHTML)"/><br/>
+                    <img src="${baseurl}tango/32x32/actions/go-previous.png" alt="Remove" onclick="onRemove($('uid').innerHTML)"/>
+                  </td>
+                  <td>
+                    <s:bean name="org.apache.struts2.util.Sorter" id="sorter"/>
+                    <s:sort comparator="#sorter.ascending" source="groups">
+                      <select id="currentGroups" size="10" style="width: 150px; display: inline;">
+                        <s:iterator>
+                        <option><s:property/></option>
+                        </s:iterator>
+                      </select>
+                    </s:sort>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: right;">Available</td>
+                  <td> </td>
+                  <td>Current</td>
+                </tr>
+              </table>
+            </s:if>
+            <s:else>
+              <s:iterator value="groups">
+                <s:url id="show_group" action="group" method="show">
+                  <s:param name="name">
+                    <s:property/>
+                  </s:param>
+                </s:url>
+                <a href="${show_group}"><s:property/></a><br/>
+              </s:iterator>
+            </s:else>
+          </td>
+        </tr>
+      </table>
+      <s:if test="canEditGroups">
+        <div class="functnbar3">
+          <s:submit action="user" method="storeGroups" value="Update"/>
+        </div>
+      </s:if>
+    </div>
+  </div>
+</form>
+
+<s:if test="canResetPassword">
+  <form id="password_form" action="">
+    <div class="h3">
+      <div class="h4">
+        <h4>Password</h4>
+      </div>
+      <div class="axial">
+        <table>
+          <tr id="message-box-container-password" style="display: none;">
+            <td colspan="2">
+              <ldapadmin:message-box id="password"/>
+            </td>
+          </tr>
+          <tr>
+            <th>Password</th>
+            <td><input id="password1" type="password"/></td>
+          </tr>
+          <tr>
+            <th>And again</th>
+            <td><input id="password2" type="password"/></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="functnbar3">
+        <input type="button" onclick="onSetPassword($('uid').innerHTML)" value="Change password"/>
+        <input type="button" onclick="onGeneratePassword($('uid').innerHTML)" value="Generate password"/>
+      </div>
+    </div>
+  </form>
+</s:if>
+</body>
+</html>

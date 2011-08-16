@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+  <bean id="userService" class="no.java.core.DefaultUserService">
+    <property name="userLdapTemplate" ref="userLdapTemplate"/>
+    <property name="groupLdapTemplate" ref="groupLdapTemplate"/>
+    <property name="passwordGenerator" ref="passwordGenerator"/>
+    <property name="algorithm" value="${userService.algorithm}"/>
+  </bean>
+
+  <bean id="passwordGenerator" class="no.java.core.DefaultPasswordGenerator">
+    <property name="length" value="8"/>
+  </bean>
+  
+  <bean id="groupService" class="no.java.core.DefaultGroupService">
+    <property name="userService" ref="userService"/>
+    <property name="ldapTemplate" ref="groupLdapTemplate"/>
+  </bean>
+
+  <bean id="userLdapTemplate" class="no.java.core.ldap.DefaultLdapTemplate">
+    <property name="connectionFactory" ref="ldapConnectionFactory"/>
+    <property name="baseDn" value="ou=People,${ldap.baseDn}"/>
+    <property name="targetClass" value="no.java.core.model.User"/>
+  </bean>
+
+  <bean id="groupLdapTemplate" class="no.java.core.ldap.DefaultLdapTemplate">
+    <property name="connectionFactory" ref="ldapConnectionFactory"/>
+    <property name="baseDn" value="ou=Group,${ldap.baseDn}"/>
+    <property name="targetClass" value="no.java.core.model.Group"/>
+  </bean>
+
+  <bean id="ldapConnectionFactory" class="no.java.core.ldap.DefaultLdapConnectionFactory">
+    <property name="contextFactory" value="${ldap.contextFactory}"/>
+    <property name="url" value="${ldap.url}"/>
+    <property name="principal" value="${ldap.principal}"/>
+    <property name="credential" value="${ldap.credential}"/>
+    <property name="objectFactories">
+      <list>
+        <value>no.java.core.UserDirObjectFactory</value>
+        <value>no.java.core.GroupDirObjectFactory</value>
+      </list>
+    </property>
+    <property name="stateFactories">
+      <list>
+        <value>no.java.core.UserDirStateFactory</value>
+        <value>no.java.core.GroupDirStateFactory</value>
+      </list>
+    </property>
+  </bean>
+
+</beans>

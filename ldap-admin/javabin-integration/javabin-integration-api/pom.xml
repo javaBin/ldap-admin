@@ -1,0 +1,10 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>no.java.portal</groupId>
+    <artifactId>ldap-admin</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>javabin-integration-api</artifactId>
+  <name>javaBin Integration :: API</name>
+</project>

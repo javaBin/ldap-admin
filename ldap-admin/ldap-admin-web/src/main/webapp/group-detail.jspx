@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:jsp="http://java.sun.com/JSP/Page"
+      xmlns:s="/struts-tags"
+      xmlns:tabletags="/tabletags">
+<jsp:directive.page contentType="text/html"/>
+<head>
+  <title>Group</title>
+</head>
+<body>
+
+<div id="axial" class="h3">
+  <div class="h4">
+    <h4>Group Details</h4>
+  </div>
+  <div class="axial">
+    <table>
+      <tr>
+        <th>Name</th>
+        <td><s:property value="name"/></td>
+      </tr>
+      <tr>
+        <th>Description</th>
+        <td><s:property value="description"/></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<h2>Members</h2>
+<s:if test="members.size() == 0">
+  This group doesn't contain any members.
+</s:if>
+<s:else>
+  <tabletags:table value="members">
+    <tabletags:column title="Member">
+      <s:property value="%{firstName + ' ' + lastName}"/>
+    </tabletags:column>
+    <tabletags:column title="Details">
+      <s:url id="show" action="user" method="show">
+        <s:param name="uid" value="uid"/>
+      </s:url>
+      <a href="${show}">Show</a>
+    </tabletags:column>
+  </tabletags:table>
+</s:else>
+
+</body>
+</html>

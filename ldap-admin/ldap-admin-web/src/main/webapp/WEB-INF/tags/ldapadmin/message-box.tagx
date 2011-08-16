@@ -1,0 +1,8 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:jsp="http://java.sun.com/JSP/Page">
+  <jsp:directive.attribute name="id" type="java.lang.String" required="true"/>
+  <div id="message-box-${id}" class="message-box" style="display: none">
+    <img id="message-box-icon-${id}" style="vertical-align: middle;" src="" alt="" width="32px" height="32px"/>
+    <span id="message-box-text-${id}">blank</span>
+  </div>
+</div>

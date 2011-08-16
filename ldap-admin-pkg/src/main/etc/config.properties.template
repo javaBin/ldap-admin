@@ -1,0 +1,7 @@
+ldap.baseDn=dc=java,dc=no
+ldap.principal=cn=admin,dc=java,dc=no
+ldap.credential=
+ldap.url=ldap://ldap.local:389
+ldap.contextFactory=com.sun.jndi.ldap.LdapCtxFactory
+userService.algorithm=MD5
+userCreationRequestService.basedir=/opt/jb/ldap-admin/var/requests

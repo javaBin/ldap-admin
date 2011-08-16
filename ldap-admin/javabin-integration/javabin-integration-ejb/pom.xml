@@ -1,0 +1,17 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>no.java.portal</groupId>
+    <artifactId>ldap-admin</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>javabin-integration-ejb</artifactId>
+  <name>javaBin Integration :: EJB</name>
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.geronimo.specs</groupId>
+      <artifactId>geronimo-ejb_3.0_spec</artifactId>
+      <version>1.0</version>
+    </dependency>
+  </dependencies>
+</project>

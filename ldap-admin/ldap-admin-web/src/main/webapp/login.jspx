@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:jsp="http://java.sun.com/JSP/Page"
+      xmlns:s="/struts-tags">
+<jsp:directive.page contentType="text/html;charset=utf-8" pageEncoding="UTF-8"/>
+<head>
+  <title>Login</title>
+</head>
+<body>
+
+<div id="search" class="h3">
+  <div class="h4">
+    <h4>Enter Credentials</h4>
+  </div>
+  <s:if test="error">
+    <p>
+      <span style="color: red">Invalid login</span>
+    </p>
+  </s:if>
+  <form method="post" action="j_security_check">
+    <div class="axial">
+      <table>
+        <tr>
+          <th>User Name</th>
+          <td><input type="text" name="j_username"/></td>
+        </tr>
+        <tr>
+          <th>Password</th>
+          <td><input type="password" name="j_password"/></td>
+        </tr>
+      </table>
+    </div>
+    <div class="functnbar3">
+      <input type="submit" value="Login"/>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>

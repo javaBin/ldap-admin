@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:jsp="http://java.sun.com/JSP/Page"
+      xmlns:s="/struts-tags">
+<jsp:directive.page contentType="text/html"/>
+<body>
+
+<ui:composition template="/templates/root.xhtml">
+
+  <ui:define name="title">Users</ui:define>
+
+  <ui:define name="body">
+    <f:view>
+      <h:form>
+        <h:dataTable id="users" value="#{user.users}" var="u" rowClasses="a,b">
+          <h:column>
+            <f:facet name="header">
+              <f:verbatim>Uid</f:verbatim>
+            </f:facet>
+            <h:outputText id="u_uid" value="#{u.uid}"/>
+          </h:column>
+          <h:column>
+            <f:facet name="header">
+              <f:verbatim>First Name</f:verbatim>
+            </f:facet>
+            <h:outputText id="u_firstName" value="#{u.firstName}"/>
+          </h:column>
+          <h:column>
+            <f:facet name="header">
+              <f:verbatim>Last Name</f:verbatim>
+            </f:facet>
+            <h:outputText id="u_lastName" value="#{u.lastName}"/>
+          </h:column>
+          <h:column>
+            <h:commandLink action="#{user.showDetails}" value="Details" immediate="true">
+              <f:param name="uid" value="#{u.uid}"/>
+            </h:commandLink>
+          </h:column>
+        </h:dataTable>
+      </h:form>
+    </f:view>
+  </ui:define>
+
+</ui:composition>
+
+</body>
+</html>

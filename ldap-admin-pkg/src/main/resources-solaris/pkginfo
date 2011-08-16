@@ -1,0 +1,14 @@
+PKG=JBldapadmin
+NAME="ldapadmin - An LDAP admin application"
+ARCH=all
+VERSION=${project.version}
+CATEGORY=utility
+DESC="ldapadmin - An LDAP admin application"
+VENDOR="(C) 2007-2008 javaBin"
+HOTLINE="drift@java.no"
+EMAIL="drift@java.no"
+BASEDIR=/
+MAXINST=1
+INTONLY=1
+CLASSES=none jbconf
+ORDER=none

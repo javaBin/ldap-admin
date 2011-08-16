@@ -1,0 +1,75 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:jsp="http://java.sun.com/JSP/Page"
+      xmlns:s="/struts-tags"
+      xmlns:tabletags="/tabletags">
+<jsp:directive.page contentType="text/html"/>
+<head>
+  <title>New User Requests</title>
+  <script type="text/javascript">
+    function onReject(row) {
+      var requestId = row.id
+
+      UserRequestService.reject(requestId,
+              function() {
+                row.remove()
+              },
+              function() {
+                $('alert').show()
+                $('alert-text').update("Error rejecting the user")
+              })
+    }
+  </script>
+  <style type="text/css">
+    .alert-box {
+      border: 2px solid red;
+      padding: 10px;
+      margin: 5px; 
+      width: 70%;
+    }
+
+    .alert-box span {
+      vertical-align: middle;
+      font-size: large;
+      color: red
+    }
+  </style>
+</head>
+<body>
+<div class="alert-box" id="alert" style="display: none;">
+  <s:url id="alert" value="tango/32x32/status/dialog-error.png"/>
+  <img style="vertical-align: middle;" src="${alert}" alt="Alert" width="32px" height="32px"/>
+  <span id="alert-text">blank</span>
+</div>
+<s:if test="userCreationRequests.size == 0">
+  There are no new requests.
+</s:if>
+<s:else>
+  <table>
+    <thead>
+      <tr>
+        <th colspan="3">Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <s:iterator id="request" value="userCreationRequests">
+        <tr id="${requestId}">
+          <td>
+            <s:property value="%{#request.user.firstName + ' ' + #request.user.lastName}"/>
+          </td>
+          <td>
+            <s:url id="show" value="/user-requests/%{requestId}"/>
+            <a id="user-request-${requestId}" href="${show}">Show</a>
+          </td>
+          <td>
+            <form action="">
+              <a href="#" onclick="onReject($('${requestId}'))">Reject</a>
+            </form>
+          </td>
+        </tr>
+      </s:iterator>
+    </tbody>
+  </table>
+</s:else>
+
+</body>
+</html>

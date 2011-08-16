@@ -1,0 +1,24 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>no.java.portal</groupId>
+    <artifactId>ldap-admin</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>ldap-admin-web-security</artifactId>
+  <name>LDAP Admin :: Security</name>
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.geronimo.modules</groupId>
+      <artifactId>geronimo-security</artifactId>
+      <version>2.0.2</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-container-default</artifactId>
+      <version>1.0-alpha-9</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>

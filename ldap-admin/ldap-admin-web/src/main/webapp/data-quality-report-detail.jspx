@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:jsp="http://java.sun.com/JSP/Page"
+      xmlns:s="/struts-tags"
+      xmlns:tabletags="/tabletags">
+<jsp:directive.page contentType="text/html"/>
+<head>
+  <title>Data Quality Report</title>
+</head>
+<body>
+
+<div id="summary" class="h3">
+  <div class="h4">
+    <h4>Summary</h4>
+  </div>
+  <div class="axial">
+    <tabletags:table value="dataQualityReport.users">
+      <tabletags:column title="Uid">
+        <s:if test="%{uid != null}">
+          <s:property value="uid"/>
+        </s:if>
+        <s:else>
+          Unknown
+        </s:else>
+      </tabletags:column>
+      <tabletags:column title="Messages">
+        <ul>
+          <s:iterator value="messages">
+            <li><s:property/></li>
+          </s:iterator>
+        </ul>
+      </tabletags:column>
+    </tabletags:table>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+grant
+{
+//    permission no.java.security.test.GenericServicePermission "no.java.security.test.MyService", "methodA";
+
+    permission javax.security.auth.AuthPermission "createLoginContext", "ldap-admin";
+    permission java.net.SocketPermission "127.0.0.1:1389", "connect,resolve";
+    permission java.lang.RuntimePermission "setIO";
+    permission javax.security.auth.AuthPermission "modifyPrincipals";
+    permission javax.security.auth.AuthPermission "doAs";
+
+    permission java.util.PropertyPermission "*", "read";
+};

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE urlrewrite PUBLIC
+  "-//tuckey.org//DTD UrlRewrite 3.0//EN"
+  "http://tuckey.org/res/dtds/urlrewrite3.0.dtd">
+
+<urlrewrite>
+
+  <rule match-type="wildcard">
+    <from>/</from>
+    <to last="true">/index.action</to>
+  </rule>
+
+  <rule match-type="wildcard">
+    <condition type="method" name="GET"/>
+    <from>/search</from>
+    <to last="true">/index.action</to>
+  </rule>
+
+  <rule match-type="wildcard">
+    <from>/authentication</from>
+    <to last="true">/authentication!showLogin.action</to>
+  </rule>
+
+  <rule match-type="wildcard">
+    <from>/authentication/logout</from>
+    <to last="true">/authentication!logout.action</to>
+  </rule>
+
+  <rule match-type="wildcard">
+    <from>/users</from>
+    <to last="true">/user!list.action</to>
+  </rule>
+  <rule match-type="wildcard">
+    <from>/users/*</from>
+    <to>/user!show.action?uid=$1</to>
+  </rule>
+
+  <rule match-type="wildcard">
+    <from>/groups</from>
+    <to last="true">/group!list.action</to>
+  </rule>
+  <rule match-type="wildcard">
+    <from>/groups/*</from>
+    <to>/group!show.action?name=$1</to>
+  </rule>
+
+  <rule match-type="wildcard">
+    <from>/reports</from>
+    <to>/report!list.action</to>
+  </rule>
+
+  <rule match-type="wildcard">
+    <from>/reports/data-quality</from>
+    <to>/dataQualityReport!run.action</to>
+  </rule>
+
+  <!--
+   -->
+  <rule match-type="wildcard">
+    <condition type="method">GET</condition>
+    <from>/user-requests</from>
+    <to>/userRequestAdmin!list.action</to>
+  </rule>
+
+  <rule match-type="wildcard">
+    <from>/user-requests/*</from>
+    <to>/userRequestAdmin!show.action?requestId=$1</to>
+  </rule>
+
+  <!--
+   |
+   | Forms
+   |
+   -->
+  <rule match-type="wildcard">
+    <from>/forms/user-requests</from>
+    <to>/userRequest!showForm.action</to>
+  </rule>
+
+  <!--
+   |
+   | JSON Services
+   |
+   -->
+
+  <rule match-type="regex">
+    <from>/json/(.*)/(.*)</from>
+    <to>/ldap-admin-json/json-$1!$2.action</to>
+  </rule>
+
+</urlrewrite>

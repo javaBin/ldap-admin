@@ -1,0 +1,10 @@
+o When adding users, do a search on the user to check if the user already exist. People tend to forget that they already have an account.
+
+o When resetting another user's passwords send an email with the new password.
+
+o When creating an account, send an email.
+
+o Implement proper security.
+ - Add a general "permission denied" page.
+
+o Implement global error handling.

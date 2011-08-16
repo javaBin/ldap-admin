@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:jsp="http://java.sun.com/JSP/Page"
+      xmlns:s="/struts-tags">
+<jsp:directive.page contentType="text/html"/>
+<head>
+  <title>Reports</title>
+</head>
+<body>
+
+<div id="search" class="h3">
+  <div class="h4">
+    <h4>Available Reports</h4>
+  </div>
+  <div class="axial">
+    <table>
+      <tr>
+        <th>Data quality</th>
+        <td>
+          <s:url id="dataQualityReport" value="/reports/data-quality"/>
+          <a href="${dataQualityReport}">Run</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+</body>
+</html>

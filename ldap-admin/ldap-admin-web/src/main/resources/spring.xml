@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+  <!--
+  <bean id="userAdminService" class="org.springframework.jndi.JndiObjectFactoryBean" lazy-init="true">
+    <property name="expectedType" value="no.java.integration.service.UserAdminService"/>
+    <property name="jndiName" value="DefaultUserAdminServiceRemote"/>
+    <property name="lookupOnStartup" value="false"/>
+    <property name="jndiEnvironment">
+      <props>
+        <prop key="java.naming.factory.initial">org.apache.openejb.client.RemoteInitialContextFactory</prop>
+        <prop key="java.naming.provider.url">ejbd://localhost:4201</prop>
+      </props>
+    </property>
+  </bean>
+  -->
+
+  <bean id="userCreationRequestService" class="no.java.admin.services.DefaultUserCreationRequestService">
+    <property name="basedir" value="${userCreationRequestService.basedir}"/>
+    <property name="userService" ref="userService"/>
+  </bean>
+
+  <bean id="eventMonitor" class="no.java.core.Log4jEventMonitor"/>
+
+  <bean id="autorizationService" class="no.java.admin.web.services.AuthorizationService"/>
+
+  <bean id="authenticationService" class="no.java.admin.web.services.AuthenticationService">
+    <property name="monitor" ref="eventMonitor"/>
+  </bean>
+
+  <bean id="uidService" class="no.java.admin.services.DefaultUidService">
+    <property name="characterMap">
+      <map>
+        <!-- No need to define uppercase letters -->
+        <entry key="&#224;" value="a"/> <!-- LATIN SMALL LETTER A WITH GRAVE -->
+        <entry key="&#225;" value="a"/> <!-- LATIN SMALL LETTER A WITH ACUTE -->
+        <entry key="&#226;" value="a"/> <!-- LATIN SMALL LETTER A WITH CIRCUMFLEX -->
+        <entry key="&#227;" value="a"/> <!-- LATIN SMALL LETTER A WITH TILDE -->
+        <entry key="&#228;" value="a"/> <!-- LATIN SMALL LETTER A WITH DIAERESIS -->
+        <entry key="&#229;" value="a"/> <!-- LATIN SMALL LETTER A WITH RING ABOVE -->
+        <entry key="&#230;" value="a"/> <!-- LATIN SMALL LETTER AE -->
+        <entry key="&#231;" value="c"/> <!-- LATIN SMALL LETTER C WITH CEDILLA -->
+        <entry key="&#232;" value="e"/> <!-- LATIN SMALL LETTER E WITH GRAVE -->
+        <entry key="&#233;" value="e"/> <!-- LATIN SMALL LETTER E WITH ACUTE -->
+        <entry key="&#234;" value="e"/> <!-- LATIN SMALL LETTER E WITH CIRCUMFLEX -->
+        <entry key="&#235;" value="e"/> <!-- LATIN SMALL LETTER E WITH DIAERESIS -->
+        <entry key="&#236;" value="i"/> <!-- LATIN SMALL LETTER I WITH GRAVE -->
+        <entry key="&#237;" value="i"/> <!-- LATIN SMALL LETTER I WITH ACUTE -->
+        <entry key="&#238;" value="i"/> <!-- LATIN SMALL LETTER I WITH CIRCUMFLEX -->
+        <entry key="&#239;" value="i"/> <!-- LATIN SMALL LETTER I WITH DIAERESIS -->
+        <!-- "d" ? -->
+        <entry key="&#241;" value="n"/> <!-- LATIN SMALL LETTER N WITH TILDE -->
+        <entry key="&#242;" value="o"/> <!-- LATIN SMALL LETTER O WITH GRAVE -->
+        <entry key="&#243;" value="o"/> <!-- LATIN SMALL LETTER O WITH ACUTE -->
+        <entry key="&#244;" value="o"/> <!-- LATIN SMALL LETTER O WITH CIRCUMFLEX -->
+        <entry key="&#245;" value="o"/> <!-- LATIN SMALL LETTER O WITH TILDE -->
+        <entry key="&#246;" value="o"/> <!-- LATIN SMALL LETTER O WITH DIAERESIS -->
+        <!-- f7 = division sign -->
+        <entry key="&#248;" value="o"/> <!-- LATIN SMALL LETTER O WITH STROKE -->
+        <entry key="&#249;" value="u"/> <!-- LATIN SMALL LETTER U WITH GRAVE -->
+        <entry key="&#250;" value="u"/> <!-- LATIN SMALL LETTER U WITH ACUTE -->
+        <entry key="&#251;" value="u"/> <!-- LATIN SMALL LETTER U WITH CIRCUMFLEX -->
+        <entry key="&#252;" value="u"/> <!-- LATIN SMALL LETTER U WITH DIAERESIS -->
+        <entry key="&#253;" value="y"/> <!-- LATIN SMALL LETTER Y WITH ACUTE -->
+        <entry key="&#255;" value="y"/> <!-- LATIN SMALL LETTER Y WITH DIAERESIS -->
+      </map>
+    </property>
+    <property name="validCharacters">
+      <set>
+        <value>a</value>
+        <value>b</value>
+        <value>c</value>
+        <value>e</value>
+        <value>d</value>
+        <value>f</value>
+        <value>g</value>
+        <value>h</value>
+        <value>i</value>
+        <value>j</value>
+        <value>k</value>
+        <value>l</value>
+        <value>m</value>
+        <value>n</value>
+        <value>o</value>
+        <value>p</value>
+        <value>q</value>
+        <value>r</value>
+        <value>s</value>
+        <value>t</value>
+        <value>u</value>
+        <value>v</value>
+        <value>w</value>
+        <value>x</value>
+        <value>y</value>
+        <value>z</value>
+        <value>-</value>
+        <value>.</value>
+        <value>0</value>
+        <value>1</value>
+        <value>2</value>
+        <value>3</value>
+        <value>4</value>
+        <value>5</value>
+        <value>6</value>
+        <value>7</value>
+        <value>8</value>
+        <value>9</value>
+      </set>
+    </property>
+  </bean>
+
+</beans>

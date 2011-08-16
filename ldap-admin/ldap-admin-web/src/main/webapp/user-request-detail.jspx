@@ -1,0 +1,174 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:jsp="http://java.sun.com/JSP/Page"
+      xmlns:s="/struts-tags">
+<jsp:directive.page contentType="text/html"/>
+<head>
+  <title>Request User</title>
+  <script type="text/javascript">
+  onDebug = function(form) {
+      form['firstName_input'].value = "a";
+      form['lastName_input'].value = "b";
+      form['mail_input'].value = "a@b.com";
+      form['mobilePhoneNumber_input'].value = "";
+  }
+
+  function onValidate(form, fieldErrors) {
+      var data = createRequestFromForm(form)
+
+      UserRequestService.validate(data,
+              function(uid) {
+                  $("message").update("Please confirm your request.").show()
+
+                  clearFieldErrors(fieldErrors)
+
+                  $("uid_text").update(uid)
+                  $("uid_field").show()
+
+                  $("firstName_input").hide()
+                  $("firstName_text").update(data.firstName).show()
+                  $("lastName_input").hide()
+                  $("lastName_text").update(data.lastName).show()
+                  $("mail_input").hide()
+                  $("mail_text").update(data.mail).show()
+                  $("mobilePhoneNumber_input").hide()
+                  $("mobilePhoneNumber_text").update(data.mobilePhoneNumber).show()
+
+                  $("validate").hide()
+                  $("store").show()
+                  $("change").show()
+              },
+              function(errors) {
+                  updateFieldErrors(errors, fieldErrors)
+              })
+  }
+
+  function onStore(form) {
+      var data = createRequestFromForm(form)
+
+      UserRequestService.store(data,
+              function(transport) {
+                  var user = transport.responseJSON
+                  $("message").update("The request has been stored and will be acted upon shortly.").show()
+
+                  $("firstName_input").hide()
+                  $("firstName_text").update(user.firstName).show()
+                  $("lastName_input").hide()
+                  $("lastName_text").update(user.lastName).show()
+                  $("mail_input").hide()
+                  $("mail_text").update(user.mail).show()
+                  $("mobilePhoneNumber_input").hide()
+                  $("mobilePhoneNumber_text").update(user.mobilePhoneNumber).show()
+
+                  $("store").hide()
+                  $("change").hide()
+                  $("newRequest").show()
+              },
+              null);
+  }
+
+  function onChange() {
+      $("message").hide()
+      $("uid_field").hide()
+      $("firstName_input").show()
+      $("firstName_text").hide()
+      $("lastName_input").show()
+      $("lastName_text").hide()
+      $("mail_input").show()
+      $("mail_text").hide()
+      $("mobilePhoneNumber_input").show()
+      $("mobilePhoneNumber_text").hide()
+
+      $("validate").show()
+      $("store").hide()
+      $("change").hide()
+  }
+
+  function onNewRequest() {
+      $("message").hide()
+      $("firstName_input").update("").show()
+      $("firstName_text").hide()
+      $("lastName_input").update("").show()
+      $("lastName_text").hide()
+      $("mail_input").update("").show()
+      $("mail_text").hide()
+      $("mobilePhoneNumber_input").update("").show()
+      $("mobilePhoneNumber_text").hide()
+      $("validate").show()
+  }
+
+  function createRequestFromForm(form) {
+      return {
+          firstName: form['firstName_input'].value,
+          lastName: form['lastName_input'].value,
+          mail: form['mail_input'].value,
+          mobilePhoneNumber: form['mobilePhoneNumber_input'].value
+      };
+  }
+</script>
+</head>
+<body>
+
+<div id="axial" class="h3">
+  <div class="h4">
+    <h4>User Details</h4>
+  </div>
+<!--
+  <div id="message" style="display: none;"/>
+-->
+  <p id="message" style="display: none;"> blank </p>
+  <form id="user-request" method="POST" action="">
+    <s:hidden name="edit" value="%{edit}"/>
+    <div class="axial">
+      <!-- before field error -->
+      <div id="fielderror">
+        <!-- after field error -->
+      </div>
+      <table>
+        <tr id="uid_field" style="display: none;">
+          <th>Uid</th>
+          <td>
+            <span id="uid_text">blank</span>
+            <div>This is only a suggestion and might change before the account is created</div>
+          </td>
+        </tr>
+        <tr>
+          <th>First name</th>
+          <td>
+            <input id="firstName_input" type="text"/>
+            <span id="firstName_text" style="display: none;"> </span>
+          </td>
+        </tr>
+        <tr>
+          <th>Last name</th>
+          <td>
+            <input id="lastName_input" type="text"/>
+            <span id="lastName_text" style="display: none;"> </span>
+          </td>
+        </tr>
+        <tr>
+          <th>Mail</th>
+          <td>
+            <input id="mail_input" type="text"/>
+            <span id="mail_text" style="display: none;"> </span>
+          </td>
+        </tr>
+        <tr>
+          <th>Mobile phone number</th>
+          <td>
+            <input id="mobilePhoneNumber_input" type="text"/>
+            <span id="mobilePhoneNumber_text" style="display: none;"> </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="functnbar3">
+      <input type="button" id="debug" value="DEBUG: set defaults" onclick="onDebug($('user-request'), $('fielderror'))"/>
+      <input type="button" id="validate" value="Validate" onclick="onValidate($('user-request'), $('fielderror'))"/>
+      <input type="button" id="store" value="DO IT!" onclick="onStore($('user-request'))" style="display: none;"/>
+      <input type="button" id="change" value="Change" onclick="onChange($('user-request'))" style="display: none;"/>
+      <input type="button" id="newRequest" value="New request" onclick="onNewRequest($('user-request'))" style="display: none;"/>
+    </div>
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+.message-box {
+  border: 2px solid red;
+  padding: 10px;
+  margin: 5px;
+  width: 100%;
+}
+
+.message-box span {
+  vertical-align: middle;
+  font-size: large;
+  color: red
+}

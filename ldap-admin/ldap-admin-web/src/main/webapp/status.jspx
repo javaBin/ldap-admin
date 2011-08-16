@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:jsp="http://java.sun.com/JSP/Page"
+      xmlns:s="/struts-tags">
+<jsp:directive.page contentType="text/html"/>
+<body>
+
+<ui:composition template="/templates/root.xhtml">
+
+  <ui:define name="title">User and System Status</ui:define>
+
+  <ui:define name="body">
+    <f:view>
+      <div id="search" class="h3">
+        <div class="h4">
+          <h4>User Status</h4>
+        </div>
+        <h:form>
+
+          <div class="axial">
+            <table>
+              <tr>
+                <th><h:outputText value="Remote User"/></th>
+                <td><h:outputText value="#{authentication.remoteUser}"/></td>
+              </tr>
+              <tr>
+                <th><h:outputText value="LDAP Admin"/></th>
+                <td><h:outputText value="#{authorization.ldapAdmin}"/></td>
+              </tr>
+            </table>
+          </div>
+        </h:form>
+      </div>
+    </f:view>
+  </ui:define>
+
+</ui:composition>
+</body>
+</html>

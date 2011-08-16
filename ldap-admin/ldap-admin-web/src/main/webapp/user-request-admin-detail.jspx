@@ -1,0 +1,92 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:jsp="http://java.sun.com/JSP/Page"
+      xmlns:s="/struts-tags">
+<jsp:directive.page contentType="text/html"/>
+<head>
+  <title>User Request</title>
+  <script type="text/javascript">
+    function onAccept(form) {
+        var user = createRequestFromForm(form, true)
+
+        UserRequestService.accept(form['requestId'].value, user,
+                function() {
+                    $("message").hide()
+                    window.location.replace(createUrl("users/" + user.uid))
+                },
+                function() {
+                    $("message").update("Error while accepting the user.").show()
+                })
+    }
+
+    function onReject(form) {
+        UserRequestService.reject(form['requestId'].value,
+                function() {
+                    $("message").hide()
+                    window.location.replace(createUrl("user-requests"))
+                },
+                function() {
+                    $("message").update("Error while rejecting the user.").show()
+                })
+    }
+
+    function createRequestFromForm(form) {
+        return {
+            uid: form['uid_input'].value,
+            firstName: form['firstName_input'].value,
+            lastName: form['lastName_input'].value,
+            mail: form['mail_input'].value,
+            mobilePhoneNumber: form['mobilePhoneNumber_input'].value
+        };
+    }
+  </script>
+</head>
+<body>
+<div id="axial" class="h3">
+  <div class="h4">
+    <h4>User Request</h4>
+  </div>
+  <form id="user-request" method="POST" action="">
+    <input type="hidden" name="requestId" value="${requestId}"/>
+    <p id="message" style="display: none">blank</p>
+    <div class="axial">
+      <table>
+        <tr>
+          <th>Uid</th>
+          <td>
+            <input id="uid_input" type="text" value="${uid}"/>
+          </td>
+        </tr>
+        <tr>
+          <th>First name</th>
+          <td>
+            <input id="firstName_input" type="text" value="${firstName}"/>
+          </td>
+        </tr>
+        <tr>
+          <th>Last name</th>
+          <td>
+            <input id="lastName_input" type="text" value="${lastName}"/>
+          </td>
+        </tr>
+        <tr>
+          <th>Mail</th>
+          <td>
+            <input id="mail_input" type="text" value="${mail}"/>
+          </td>
+        </tr>
+        <tr>
+          <th>Mobile phone number</th>
+          <td>
+            <input id="mobilePhoneNumber_input" type="text" value="${mobilePhoneNumber}"/>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="functnbar3">
+      <input type="button" id="approveRequest" value="Accept" onclick="onAccept($('user-request'))"/>
+      <input type="button" id="rejectRequest" value="Reject" onclick="onReject($('user-request'))"/>
+    </div>
+  </form>
+</div>
+</body>
+</html>

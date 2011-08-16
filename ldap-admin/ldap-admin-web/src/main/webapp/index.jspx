@@ -1,0 +1,6 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:jsp="http://java.sun.com/JSP/Page">
+<jsp:scriptlet>
+  response.sendRedirect("index.action");
+</jsp:scriptlet>
+</html>

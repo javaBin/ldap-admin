@@ -1,0 +1,22 @@
+<assembly>
+  <id>pkg</id>
+  <formats>
+    <format>directory</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <dependencySets>
+    <dependencySet>
+      <includes>
+        <include>no.java.portal:ldap-admin-web</include>
+      </includes>
+      <outputFileNameMapping>opt/jb/ldap-admin/ldap-admin.war</outputFileNameMapping>
+    </dependencySet>
+  </dependencySets>
+  <fileSets>
+    <fileSet>
+      <directory>src/main/etc</directory>
+      <outputDirectory>opt/jb/ldap-admin/etc</outputDirectory>
+      <lineEnding>unix</lineEnding>
+    </fileSet>
+  </fileSets>
+</assembly>

@@ -1,0 +1,749 @@
+version: 1
+
+# This dataset has two special users:
+# trygvis, with the password of "123" and a member of the "ldap-admin" group
+# usr with the password "123" and no special memberships
+
+#
+# LDAPv3
+# base <dc=java,dc=no> with scope subtree
+# filter: (objectclass=*)
+# requesting: ALL
+#
+
+# java.no
+dn: dc=java,dc=no
+objectClass: top
+objectClass: dcObject
+objectClass: organization
+dc: java
+o: javaBin
+
+# People, java.no
+dn: ou=People,dc=java,dc=no
+ou: People
+objectClass: top
+objectClass: organizationalUnit
+
+# Group, java.no
+dn: ou=Group,dc=java,dc=no
+ou: Group
+objectClass: top
+objectClass: organizationalUnit
+
+# trygvis, People, java.no
+dn: uid=trygvis,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: trygvis
+cn: trygvis
+givenName: Trygve
+mail: trygvis@inamo.no
+telephoneNumber: 92699070
+sn: Laugstol
+userPassword: 123
+
+# usr, People, java.no
+dn: uid=usr,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: usr
+cn: usr
+givenName: Trygve
+mail: trygvis@inamo.no
+telephoneNumber: 92699070
+sn: Laugstol
+userPassword: 123
+
+# andreas.marienborg, People, java.no
+dn: uid=andreas.marienborg,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: andreas.marienborg
+cn: andreas.marienborg
+sn: Marienborg
+displayName: Andreas Marienborg
+givenName: Andreas
+mail: omega@palle.net
+
+# kristian.nordal, People, java.no
+dn: uid=kristian.nordal,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: kristian.nordal
+cn: kristian.nordal
+sn: Nordal
+displayName: Kristian Nordal
+givenName: Kristian
+mail: kristian.nordal@gmail.com
+telephoneNumber: 93425881
+
+# andreas.bade, People, java.no
+dn: uid=andreas.bade,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: andreas.bade
+cn: andreas.bade
+sn: Bade
+displayName: Andreas Bade
+givenName: Andreas
+mail: ab@objectnet.no
+
+# harald.kuhr, People, java.no
+dn: uid=harald.kuhr,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: harald.kuhr
+cn: harald.kuhr
+sn: Kuhr
+displayName: Harald Kuhr
+givenName: Harald
+mail: haraldk@escenic.com
+
+# ingvild.meyer.pedersen, People, java.no
+dn: uid=ingvild.meyer.pedersen,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: ingvild.meyer.pedersen
+cn: ingvild.meyer.pedersen
+sn: Pedersen
+displayName: Ingvild Meyer Pedersen
+givenName: Ingvild Meyer
+mail: ingvild.m.pedersen@webstep.no
+
+# kjetil.h.paulsen, People, java.no
+dn: uid=kjetil.h.paulsen,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: kjetil.h.paulsen
+cn: kjetil.h.paulsen
+sn: Paulsen
+displayName: Kjetil H. Paulsen
+givenName: Kjetil H.
+mail: kjetil.paulsen@gmail.com
+
+# kristoffer.moum, People, java.no
+dn: uid=kristoffer.moum,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: kristoffer.moum
+cn: kristoffer.moum
+sn: Moum
+displayName: Kristoffer Moum
+givenName: Kristoffer
+mail: krismoum@online.no
+
+# kaare.m.knudsen, People, java.no
+dn: uid=kaare.m.knudsen,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: kaare.m.knudsen
+cn: kaare.m.knudsen
+sn: Knudsen
+displayName: Kaare M. Knudsen
+givenName: Kaare M.
+mail: kaare@java.no
+
+# leif.jantzen, People, java.no
+dn: uid=leif.jantzen,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: leif.jantzen
+cn: leif.jantzen
+sn: Jantzen
+displayName: Leif Jantzen
+givenName: Leif
+mail: leif.jantzen@arktekk.no
+
+# nils-helge.garli, People, java.no
+dn: uid=nils-helge.garli,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: nils-helge.garli
+cn: nils-helge.garli
+sn: Garli
+displayName: Nils-Helge Garli
+givenName: Nils-Helge
+mail: nilsga@gmail.com
+
+# odd.erik.zapffe, People, java.no
+dn: uid=odd.erik.zapffe,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: odd.erik.zapffe
+cn: odd.erik.zapffe
+sn: Zapffe
+displayName: Odd Erik Zapffe
+givenName: Odd Erik
+mail: oez@mesan.no
+
+# tobias.k.torrissen, People, java.no
+dn: uid=tobias.k.torrissen,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: tobias.k.torrissen
+cn: tobias.k.torrissen
+sn: Torrisen
+displayName: Tobias K. Torrisen
+givenName: Tobias K.
+mail: tto@unified.no
+
+# totto, People, java.no
+dn: uid=totto,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: totto
+cn: totto
+sn: Hetland
+displayName: Thor Henning Hetland
+givenName: Thor Henning
+mail: president@java.no
+
+# aase.mestad, People, java.no
+dn: uid=aase.mestad,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: aase.mestad
+cn: aase.mestad
+sn: Mestad
+displayName: Aase Mestad
+givenName: Aase
+mail: aam@objectnet.no
+
+# nils.christian.haugen, People, java.no
+dn: uid=nils.christian.haugen,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: nils.christian.haugen
+cn: nils.christian.haugen
+sn: Haugen
+displayName: Nils Christian Haugen
+givenName: Nils Christian
+mail: nchaugen@gmail.com
+
+# bjorn.vidar.boe, People, java.no
+dn: uid=bjorn.vidar.boe,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: bjorn.vidar.boe
+cn: bjorn.vidar.boe
+sn:: QsO4ZQ==
+givenName:: QmrDuHJuIFZpZGFy
+mail: bjorn.vidar.boe@arktekk.no
+displayName:: QmrDuHJuIFZpZGFyIELDuGU=
+
+# bjorn.tveiten, People, java.no
+dn: uid=bjorn.tveiten,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: bjorn.tveiten
+cn: bjorn.tveiten
+sn: Tveiten
+givenName:: QmrDuHJu
+mail: tveiten@computer.org
+displayName:: QmrDuHJuIFR2ZWl0ZW4=
+
+# bard.lind, People, java.no
+dn: uid=bard.lind,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: bard.lind
+cn: bard.lind
+sn: Lind
+givenName:: QsOlcmQ=
+mail: bard.lind@gmail.com
+displayName:: QsOlcmQgTGluZA==
+
+# harald.oygard, People, java.no
+dn: uid=harald.oygard,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: harald.oygard
+cn: harald.oygard
+sn:: w5h5Z8OlcmQ=
+givenName: Harald
+mail: haroyg@online.no
+displayName:: SGFyYWxkIMOYeWfDpXJk
+
+# jorn.holm, People, java.no
+dn: uid=jorn.holm,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: jorn.holm
+cn: jorn.holm
+sn: Holm
+givenName:: SsO4cm4=
+mail: jornh@officenet.no
+
+# kjetil.jorgensen-dahl, People, java.no
+dn: uid=kjetil.jorgensen-dahl,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: kjetil.jorgensen-dahl
+cn: kjetil.jorgensen-dahl
+sn:: SsO4cmdlbnNlbi1EYWhs
+givenName: Kjetil
+mail: kjetiljd@java.no
+
+# laila.ronning, People, java.no
+dn: uid=laila.ronning,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: laila.ronning
+cn: laila.ronning
+sn:: UsO4bm5pbmc=
+givenName: Laila
+mail: laila.ronning@tietoenator.com
+
+# ole-martin.mork, People, java.no
+dn: uid=ole-martin.mork,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: ole-martin.mork
+cn: ole-martin.mork
+sn:: TcO4cms=
+givenName: Ole-Martin
+mail: olemartin@gmail.com
+
+# thor.age.eldby, People, java.no
+dn: uid=thor.age.eldby,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: thor.age.eldby
+cn: thor.age.eldby
+sn: Eldby
+givenName:: VGhvciDDhWdl
+mail: tel@objectnet.no
+
+# oyvind.lokling, People, java.no
+dn: uid=oyvind.lokling,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: oyvind.lokling
+cn: oyvind.lokling
+sn:: TMO4a2xpbmc=
+givenName:: w5h5dmluZA==
+mail: oyvind@lokling.com
+
+# yngvar.sorensen, People, java.no
+dn: uid=yngvar.sorensen,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: yngvar.sorensen
+cn: yngvar.sorensen
+sn:: U8O4cmVuc2Vu
+givenName: Yngvar
+mail: yngvars@gmail.com
+
+# rune.peter.bjornstad, People, java.no
+dn: uid=rune.peter.bjornstad,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: rune.peter.bjornstad
+cn: rune.peter.bjornstad
+sn:: QmrDuHJuc3RhZA==
+mail: runepeter@gmail.com
+givenName: Rune Peter
+
+# bjorn.nordlund, People, java.no
+dn: uid=bjorn.nordlund,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: bjorn.nordlund
+cn: bjorn.nordlund
+sn: Nordlund
+givenName:: QmrDuHJu
+mail: bjornno@gmail.com
+displayName:: QmrDuHJuIE5vcmRsdW5k
+
+# bjorn.bjerkeli, People, java.no
+dn: uid=bjorn.bjerkeli,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: bjorn.bjerkeli
+cn: bjorn.bjerkeli
+sn: bjerkeli
+givenName: Bjorn
+mail: bjerkeli@gmail.com
+displayName:: QmrDuHJuIEJqZXJrZWxp
+
+# per.spilling, People, java.no
+dn: uid=per.spilling,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: per.spilling
+cn: per.spilling
+sn: Spilling
+givenName: Per
+mail: per.spilling@arktekk.no
+
+# simen.rokaas, People, java.no
+dn: uid=simen.rokaas,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: simen.rokaas
+cn: simen.rokaas
+sn: Rokaas
+givenName: Simen
+mail: simen.rokaas@bouvet.no
+
+# carl.j.onstad, People, java.no
+dn: uid=carl.j.onstad,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: carl.j.onstad
+cn: carl.j.onstad
+sn: Onstad
+givenName: Carl J.
+mail: cjo@macsimum.no
+displayName: Carl J. Onstad
+
+# goran.breivik, People, java.no
+dn: uid=goran.breivik,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: goran.breivik
+cn: goran.breivik
+sn: Breivik
+mail: goran.breivik@gmail.com
+givenName:: R8O4cmFuIEYu
+displayName:: R8O4cmFuIEYuIEJyZWl2aWs=
+
+# thea.christine.steen, People, java.no
+dn: uid=thea.christine.steen,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: thea.christine.steen
+cn: thea.christine.steen
+sn: Steen
+givenName: Thea Christine
+mail: thea.christine.steen@arktekk.no
+
+# eirik.litangen, People, java.no
+dn: uid=eirik.litangen,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: eirik.litangen
+cn: eirik.litangen
+sn: Litangen
+givenName: Eirik
+mail: eirrik@gmail.com
+displayName: Eirik Liatangen
+
+# tom.bang, People, java.no
+dn: uid=tom.bang,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: tom.bang
+cn: tom.bang
+sn: Bang
+givenName: Tom
+mail: tom.bang@bekk.no
+
+# jessica.hildrum, People, java.no
+dn: uid=jessica.hildrum,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: jessica.hildrum
+cn: jessica.hildrum
+sn: Hildrum
+givenName: Jessica
+mail: jessicarbh@gmail.com
+
+# nils.christian, People, java.no
+dn: uid=nils.christian,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: nils.christian
+cn: nils.christian
+sn: Haugen
+givenName: Nils Christian
+mail: nchaugen@gmail.com
+
+# styret, Group, java.no
+dn: cn=styret,ou=Group,dc=java,dc=no
+cn: styret
+objectClass: groupOfUniqueNames
+objectClass: top
+uniqueMember: uid=aase.mestad,ou=People,dc=java,dc=no
+uniqueMember: uid=andreas.bade,ou=People,dc=java,dc=no
+uniqueMember: uid=bjorn.tveiten,ou=People,dc=java,dc=no
+uniqueMember: uid=bjorn.bjerkeli,ou=People,dc=java,dc=no
+uniqueMember: uid=bjorn.nordlund,ou=People,dc=java,dc=no
+uniqueMember: uid=harald.kuhr,ou=People,dc=java,dc=no
+uniqueMember: uid=kjetil.h.paulsen,ou=People,dc=java,dc=no
+uniqueMember: uid=kjetil.jorgensen-dahl,ou=People,dc=java,dc=no
+uniqueMember: uid=kristoffer.moum,ou=People,dc=java,dc=no
+uniqueMember: uid=leif.jantzen,ou=People,dc=java,dc=no
+uniqueMember: uid=oyvind.lokling,ou=People,dc=java,dc=no
+uniqueMember: uid=nils-helge.garli,ou=People,dc=java,dc=no
+uniqueMember: uid=odd.erik.zapffe,ou=People,dc=java,dc=no
+uniqueMember: uid=rune.peter.bjornstad,ou=People,dc=java,dc=no
+uniqueMember: uid=trygvis,ou=People,dc=java,dc=no
+uniqueMember: uid=totto,ou=People,dc=java,dc=no
+uniqueMember: uid=tobias.k.torrissen,ou=People,dc=java,dc=no
+uniqueMember: uid=yngvar.sorensen,ou=People,dc=java,dc=no
+uniqueMember: uid=ingvild.olavsdatter,ou=People,dc=java,dc=no
+uniqueMember: uid=ole-martin.mork,ou=People,dc=java,dc=no
+uniqueMember: uid=thor.age.eldby,ou=People,dc=java,dc=no
+uniqueMember: uid=bard.lind,ou=People,dc=java,dc=no
+uniqueMember: uid=kaare.m.knudsen,ou=People,dc=java,dc=no
+
+# ingvild.olavsdatter, People, java.no
+dn: uid=ingvild.olavsdatter,ou=People,dc=java,dc=no
+cn: ingvild.olavsdatter
+displayName: Ingvild Olavsdatter
+givenName: Jessica
+mail: olavsdatter@gmail.com
+objectClass: top
+objectClass: inetOrgPerson
+sn: Olavsdatter
+uid: ingvild.olavsdatter
+
+# ingar.hov, People, java.no
+dn: uid=ingar.hov,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: ingar.hov
+cn: ingar.hov
+sn: Hov
+givenName: Ingar
+mail: ingar.hov@hm-media.no
+displayName: Ingar Hov
+
+# thomas.nilsen, People, java.no
+dn: uid=thomas.nilsen,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: thomas.nilsen
+cn: thomas.nilsen
+sn: Nilsen
+givenName: Thomas
+mail: tn@macsimum.no
+
+# kodesmia, Group, java.no
+dn: cn=kodesmia,ou=Group,dc=java,dc=no
+cn: kodesmia
+objectClass: groupOfUniqueNames
+objectClass: top
+uniqueMember: uid=trygvis,ou=People,dc=java,dc=no
+
+# despot, Group, java.no
+dn: cn=despot,ou=Group,dc=java,dc=no
+cn: despot
+objectClass: groupOfUniqueNames
+objectClass: top
+uniqueMember: uid=trygvis,ou=People,dc=java,dc=no
+
+# ldap-admin, Group, java.no
+dn: cn=ldap-admin,ou=Group,dc=java,dc=no
+cn: ldap-admin
+objectClass: groupOfUniqueNames
+objectClass: top
+uniqueMember: uid=trygvis,ou=People,dc=java,dc=no
+
+# kristian.berg, People, java.no
+dn: uid=kristian.berg,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: kristian.berg
+cn: kristian.berg
+sn: Berg
+givenName: Kristian
+mail: kristian.berg@broadpark.no
+
+# marte.kjenstad, People, java.no
+dn: uid=marte.kjenstad,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: marte.kjenstad
+cn: marte.kjenstad
+sn: Kjenstad
+displayName: TWFydGU= S2plbnN0YWQ=
+givenName: Marte
+mail: marte.kjenstad@arktekk.no
+
+# morten.tuft, People, java.no
+dn: uid=morten.tuft,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: morten.tuft
+cn: morten.tuft
+sn: Tuft
+displayName: TW9ydGVu VHVmdA==
+givenName: Morten
+mail: morten.tuft@gmail.com
+
+# stein.grimstad, People, java.no
+dn: uid=stein.grimstad,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: stein.grimstad
+cn: stein.grimstad
+sn: Grimstad
+displayName: U3RlaW4= R3JpbXN0YWQ=
+givenName: Stein
+mail: steingr@simula.no
+
+# stig.lau, People, java.no
+dn: uid=stig.lau,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: stig.lau
+cn: stig.lau
+sn: Lau
+displayName: U3RpZw== TGF1
+givenName: Stig
+mail: stig.lau@bouvet.no
+
+# andreas.roe, People, java.no
+dn: uid=andreas.roe,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: andreas.roe
+cn: andreas.roe
+sn:: UsODwrhl
+displayName: QW5kcmVhcw== UsODwrhl
+givenName: Andreas
+mail: andreas.roe@accenture.com
+
+# vebjorn.olsen, People, java.no
+dn: uid=vebjorn.olsen,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: vebjorn.olsen
+cn: vebjorn.olsen
+sn: Olsen
+displayName: VmViasODwrhybg== T2xzZW4=
+givenName:: VmViasODwrhybg==
+mail: vro@macsimum.no
+
+# are.tysnes, People, java.no
+dn: uid=are.tysnes,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: are.tysnes
+cn: are.tysnes
+sn: Tysnes
+givenName: Are
+mail: are.tysnes@gmail.com
+displayName: Are Tysnes
+userPassword: 123
+
+# linus.foldemo, People, java.no
+dn: uid=linus.foldemo,ou=People,dc=java,dc=no
+cn: linus.foldemo
+displayName: Linus Foldemo
+givenName: Linus
+mail: linus.foldemo@java.no
+objectClass: top
+objectClass: inetOrgPerson
+sn: Foldemo
+uid: linus.foldemo
+
+# portal, Group, java.no
+dn: cn=portal,ou=Group,dc=java,dc=no
+cn: portal
+objectClass: groupOfUniqueNames
+objectClass: top
+uniqueMember: uid=trygvis,ou=people,dc=java,dc=no
+uniqueMember: uid=are.tysnes,ou=people,dc=java,dc=no
+
+# gunn.marie.navestad, People, java.no
+dn: uid=gunn.marie.navestad,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: gunn.marie.navestad
+cn: gunn.marie.navestad
+sn: Navestad
+displayName: R3VubiBNYXJpZQ== TmF2ZXN0YWQ=
+givenName: Gunn Marie
+mail: gunn.marie.navestad@arktekk.no
+
+# henrik.gram, People, java.no
+dn: uid=henrik.gram,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: henrik.gram
+cn: henrik.gram
+sn: Gram
+displayName: SGVucmlr R3JhbQ==
+givenName: Henrik
+mail: henrik.gram@gmail.com
+
+# arild.stromhylden, People, java.no
+dn: uid=arild.stromhylden,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: arild.stromhylden
+cn: arild.stromhylden
+sn:: U3Ryw4PCuG1oeWxkZW4=
+displayName: QXJpbGQ= U3Ryw4PCuG1oeWxkZW4=
+givenName: Arild
+mail: arild.stromhylden@miles.no
+
+# hong.vo, People, java.no
+dn: uid=hong.vo,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: hong.vo
+cn: hong.vo
+sn: Vo
+displayName: SG9uZw== Vm8=
+givenName: Hong
+mail: hong.vo@arktekk.no
+
+# fredrik.vraalsen, People, java.no
+dn: uid=fredrik.vraalsen,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: fredrik.vraalsen
+cn: fredrik.vraalsen
+sn: Vraalsen
+displayName: RnJlZHJpaw== VnJhYWxzZW4=
+givenName: Fredrik
+mail: fredrik@vraalsen.no
+
+# alf.stoyle, People, java.no
+dn: uid=alf.stoyle,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: alf.stoyle
+cn: alf.stoyle
+sn:: U3TDg8K4eWxl
+displayName: QWxm U3TDg8K4eWxl
+givenName: Alf
+mail: alf.kristian@gmail.com
+
+# christian.herzog, People, java.no
+dn: uid=christian.herzog,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: christian.herzog
+cn: christian.herzog
+sn: Herzog
+displayName: Q2hyaXN0aWFu SGVyem9n
+givenName: Christian
+mail: ch@esito.no
+
+# thomas.nicolaisen, People, java.no
+dn: uid=thomas.nicolaisen,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: thomas.nicolaisen
+cn: thomas.nicolaisen
+sn: Nicolaisen
+displayName: VGhvbWFz Tmljb2xhaXNlbg==
+givenName: Thomas
+mail: tfnico@gmail.com
+
+# florent.legendre, People, java.no
+dn: uid=florent.legendre,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: florent.legendre
+cn: florent.legendre
+sn: Legendre
+displayName: RmxvcmVudA== TGVnZW5kcmU=
+givenName: Florent
+mail: flegendre@komopolis.com

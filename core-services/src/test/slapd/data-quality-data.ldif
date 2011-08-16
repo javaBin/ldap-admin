@@ -1,0 +1,59 @@
+version: 1
+
+# Data set for running the data quality report
+
+# java.no
+dn: dc=java,dc=no
+objectClass: top
+objectClass: dcObject
+objectClass: organization
+dc: java
+o: javaBin
+
+# People, java.no
+dn: ou=People,dc=java,dc=no
+ou: People
+objectClass: top
+objectClass: organizationalUnit
+
+# Group, java.no
+dn: ou=Group,dc=java,dc=no
+ou: Group
+objectClass: top
+objectClass: organizationalUnit
+
+# trygvis, People, java.no
+dn: uid=trygvis,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: trygvis
+cn: trygvis
+givenName: Trygve
+mail: trygvis@inamo.no
+telephoneNumber: 92699070
+sn: Laugstol
+userPassword: 123
+
+dn: uid=dude1,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: dude1
+cn: dude
+givenName: Dude
+sn: Lastname
+
+dn: uid=dude2,ou=People,dc=java,dc=no
+objectClass: top
+objectClass: inetOrgPerson
+uid: dude2
+cn: dude
+givenName: Dude
+mail: a@b.com
+sn: Lastname
+
+# ldap-admin, Group, java.no
+dn: cn=ldap-admin,ou=Group,dc=java,dc=no
+cn: ldap-admin
+objectClass: groupOfUniqueNames
+objectClass: top
+uniqueMember: uid=trygvis,ou=People,dc=java,dc=no

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="searchSystemEnvironment" value="true"/>
+    <property name="properties">
+      <props>
+        <prop key="userService.algorithm">MD5</prop>
+        <prop key="ldap.baseDn">dc=java,dc=no</prop>
+        <prop key="ldap.contextFactory">com.sun.jndi.ldap.LdapCtxFactory</prop>
+        <prop key="ldap.url">ldap://localhost:1389</prop>
+        <prop key="ldap.principal">cn=admin,dc=java,dc=no</prop>
+        <prop key="ldap.credential">secret</prop>
+      </props>
+    </property>
+  </bean>
+
+  <bean id="eventMonitor" class="no.java.core.Log4jEventMonitor">
+  </bean>
+
+</beans>

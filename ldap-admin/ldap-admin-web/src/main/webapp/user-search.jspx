@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:jsp="http://java.sun.com/JSP/Page"
+      xmlns:s="/struts-tags"
+      xmlns:tabletags="/tabletags">
+<jsp:directive.page contentType="text/html"/>
+<head>
+  <title>Search Result</title>
+  <s:head/>
+</head>
+<body>
+<tabletags:table value="users">
+  <tabletags:column title="Uid">
+    <s:property value="uid"/>
+  </tabletags:column>
+  <tabletags:column title="First Name">
+    <s:property value="firstName"/>
+  </tabletags:column>
+  <tabletags:column title="Last Name">
+    <s:property value="lastName"/>
+  </tabletags:column>
+  <tabletags:column>
+    <s:url id="show" action="user" method="show">
+      <s:param name="uid" value="uid"/>      
+    </s:url>
+    <a href="${show}">Show</a>
+  </tabletags:column>
+</tabletags:table>
+
+</body>
+</html>

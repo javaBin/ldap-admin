@@ -1,0 +1,680 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <style type="text/css">
+    @import "css/tigris.css";
+  </style>
+  <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
+  <script src="scripts/tigris.js" type="text/javascript">
+  </script>
+  <title>branded tigris style sampler</title>
+  <meta http-equiv="Content-type" content="text/html"/>
+  <meta http-equiv="Content-style-type" content="text/css"/>
+  <meta name="version" content="/* $Id: sampler_tigris.html,v 1.4 2003/09/27 01:26:21 jrobbins Exp $"/>
+  <meta name="keywords" content="britney spears bob dole"/>
+  <meta name="description" content="Your ad here"/>
+</head>
+<!--  onload="focus()" marginwidth="0" marginheight="0"  -->
+<body class="composite">
+<div id="banner">
+  <table border="0" cellspacing="0" cellpadding="8" width="100%">
+    <tr>
+      <td>
+        <h1><a href="http://www.collab.net/" id="cn"><span class="alt">CollabNet</span></a> <a href="http://www.collab.net/products/sourcecast/" id="sc"><span class="alt">SourceCast</span></a></h1>
+      </td>
+      <td>
+        <div id="login" align="right" class="right">
+          <form action="#" method="get">
+            <select name="go">
+              <option value="foo">Search...</option>
+              <option value="bar">This project</option>
+              <option value="baz">My projects</option>
+              <option value="baz">Entire domain</option>
+            </select>
+            for
+            <input type="text" name="query" size="10"/>
+            <input type="submit" name="Button" value="Go"/>
+          </form>
+          <div>
+            <a href="#" style="text-decoration: none">Advanced search</a>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+<div class="tabs" id="toptabs">
+  <table cellpadding="4" cellspacing="0" border="0">
+    <tr>
+      <td><a href="#">My pages</a></td>
+      <th><a href="#">Projects</a></th>
+      <td><a href="#">Administration</a></td>
+    </tr>
+  </table>
+</div>
+<div id="breadcrumbs">
+  <a href="#">Foo</a> &gt; <a href="#">Bar</a> &gt; <a href="#">Baz</a> &gt; Bat
+</div>
+<table border="0" cellspacing="0" cellpadding="4" width="100%" id="main">
+<tr valign="top">
+<td id="leftcol" width="20%">
+<div id="navcolumn">
+  <div id="projecttools" class="toolgroup">
+    <div class="label">
+      <strong>Project tools</strong>
+    </div>
+    <div class="body">
+      <div>
+        <a href="#">Project home</a>
+      </div>
+      <div>
+        <a href="#">Membership</a>
+      </div>
+      <div>
+        <a href="#">Mailing lists</a>
+      </div>
+      <div>
+        <a href="#">Source code</a>
+      </div>
+      <div>
+        <a href="#">Issue tracking</a>
+
+        <div>
+          <a href="#">Foo</a>
+        </div>
+        <div>
+          <a href="#">Bar</a>
+
+          <div>
+            <a href="#" class="selfref">And so on</a>
+          </div>
+        </div>
+        <div>
+          <a href="#">Baz</a>
+        </div>
+      </div>
+      <div>
+        <a href="#">File sharing</a>
+      </div>
+      <div>
+        <a href="#">News</a>
+      </div>
+    </div>
+  </div>
+  <div id="admfun" class="toolgroup">
+    <div class="label">
+      <strong>Administration</strong>
+    </div>
+    <div class="body">
+      <div>
+        <a href="#">Project groups</a>
+      </div>
+      <div>
+        <a href="#">Users</a>
+      </div>
+      <div class="heading">
+        <strong>User groups</strong>
+
+        <div>
+          <a href="#">Group one</a>
+        </div>
+        <div>
+          <a href="#">Group two</a>
+        </div>
+      </div>
+      <div>
+        <a href="#">Sessions</a>
+      </div>
+      <div>
+        <a href="#">Audit log</a>
+      </div>
+    </div>
+  </div>
+  <div id="helptext" class="toolgroup">
+    <div class="label">
+      <strong>How do I...</strong>
+    </div>
+    <div class="body">
+      <div>
+        <a href="example_help1.html" onclick="return launch(this.href, 1)"
+           title="Note: link may open in new window">Learn more about this project?</a>
+      </div>
+      <div>
+        <a href="example_help1.html" onclick="return launch(this.href, 1)"
+           title="Note: link may open in new window">Join this project?</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="strut">&nbsp;</div>
+</td>
+<td>
+<div id="topmodule">
+  <table border="0" cellspacing="0" cellpadding="3">
+    <tr>
+      <td id="issueid">
+        <form action="#" method="get">
+          <input type="hidden" name="nextTemplate" value="ViewIssue.vm"/>
+          <input type="text" name="id" size="15" maxlength="255" tabindex="1"/>
+          <input type="submit" value="Issue Id" name="eventSubmit_doGonext" tabindex="2"/>
+        </form>
+      </td>
+      <td>
+        <form action="#" method="get">
+          <input type="hidden" name="nextTemplate" value="Index.vm"/>
+          <select name="go" tabindex="3" onchange="this.form.submit();">
+            <option value="AdvancedQuery.vm">Select query...</option>
+            <option value="AdvancedQuery.vm">Advanced</option>
+            <option value="Search.vm">Custom</option>
+          </select>
+          <input type="hidden" value="foo" name="eventSubmit_doSelectquery"/>
+          <noscript><input type="submit" value="Go" name="foo" tabindex="4"/></noscript>
+        </form>
+      </td>
+    </tr>
+  </table>
+</div>
+<div id="bodycol">
+  <div id="apphead">
+    <h2>My title: <em>Launch torpedo</em></h2>
+  </div>
+  <div id="projecthome" class="app">
+  <div class="functnbar">
+    <input type="submit" name="eventSubmit_doSearch" value="Submit"/>
+    <input type="submit" value="Save this query" name="eventSubmit_doRedirecttosavequery"/>
+  </div>
+  <div id="axial" class="h3">
+    <h3>"Axial" table for form layout</h3>
+
+    <form action="#" method="get">
+      <div class="axial">
+        <table border="0" cellspacing="2" cellpadding="3">
+          <tr>
+            <th>Name for system mail</th>
+            <td>
+              <input type="text" name="#" value="SourceCast" size="30" maxlength="50"/>
+              <p>Name from which system email should be sent</p>
+            </td>
+          </tr>
+          <tr>
+            <th>Display timezone</th>
+            <td>
+              <input type="text" name="#" value="GMT" size="10" maxlength="10"/>
+              <p>The timezone to use for displaying times and dates</p>
+            </td>
+          </tr>
+          <tr>
+            <th>Logging level</th>
+            <td>
+              <div>
+                <input type="radio" name="#" checked="checked"/> DEBUG
+              </div>
+              <div>
+                <input type="radio" name="#" value="INFO"/> INFO
+              </div>
+              <div>
+                <input type="radio" name="#" value="WARN"/> WARN
+              </div>
+              <div>
+                <input type="radio" name="#" value="ERROR"/> ERROR
+              </div>
+              <p>The verbosity of logging produced by system operation and events</p>
+            </td>
+          </tr>
+          <tr>
+            <th>User cache size</th>
+            <td>
+              <input type="text" name="#" value="1" size="3" maxlength="3"/>
+
+              <p>The size of the site-wide user cache, expressed as a fraction of the total number of users on the site</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="functnbar3">
+        <input type="submit" name="f" value="Submit"/>
+      </div>
+    </form>
+  </div>
+  <div class="tabs" id="tabs">
+    <table cellpadding="3" cellspacing="0" border="0">
+      <tr>
+        <td title="View category list"><a href="#">Categories</a></td>
+        <th title="View project list">Projects</th>
+        <td title="View category list"><a href="#">Leanest tabset ever</a></td>
+      </tr>
+    </table>
+  </div>
+  <div class="colbar">
+    <form action="#" method="get">
+      <input type="checkbox" name="mode" id="mode" value="Nested" onclick="this.form.submit();"/>
+      <label for="mode">View sub projects</label>
+      <noscript><input type="submit" value="Refresh"/></noscript>
+    </form>
+  </div>
+  <table border="1" cellspacing="2" cellpadding="3" width="100%">
+    <tr>
+      <th>Edit</th>
+      <th>Name</th>
+      <th>Summary</th>
+      <th>Categories</th>
+    </tr>
+    <tr class="a">
+      <td><input type="radio" name="foo" value="bar"/></td>
+      <td><a href="#">Chunk</a></td>
+      <td>A project for HTML documents and information</td>
+      <td>none</td>
+    </tr>
+    <tr class="b">
+      <td><input type="radio" name="foo" value="bar"/></td>
+      <td><a href="#">Testproject</a></td>
+      <td>Test project for beta test</td>
+      <td>none</td>
+    </tr>
+    <tr class="a">
+      <td><input type="radio" name="foo" value="bar"/></td>
+      <td><a href="#">Applethrasher</a></td>
+      <td>A project for HTML documents and information</td>
+      <td>none</td>
+    </tr>
+  </table>
+  <div class="functnbar3">
+    <input type="submit" name="f" value="Make changes"/>
+  </div>
+  <div class="h3" id="icons">
+  <h3>Icon usage in Tigris</h3>
+
+  <p>The techniques shown here (view source) make no use of the
+    <code>img</code> tag, keeping verbose details like height, width, spacing, border treatments, and pathname of images out of HTML and in the style system, where they can be managed most cleanly. Beat the rush and retire
+    <code>img</code> before XHTML 2 scraps it formally.</p>
+
+  <div class="h4" id="trees">
+  <h4>Two styles of tree browser</h4>
+
+  <p>In this first group of 4, the icon and text are integral (same link or other element). CVSWeb's UI works this way.</p>
+
+  <div class="filebrowse">
+    <p class="leaf"><a href="foo">filebrowse leaf</a></p>
+
+    <p class="leafnode"><a href="foo">filebrowse leafnode/</a></p>
+
+    <p class="expanded"><a href="foo">filebrowse expanded/</a></p>
+
+    <p class="collapsed"><a href="foo">filebrowse collapsed/</a></p>
+  </div>
+  <p class="stb">In this second group, the icon and text are separate links, with the icon having a textual fallback (for Nav4 and other special cases). Nidaba (file-sharing component of SourceCast) works this way.</p>
+
+  <div class="filebrowse-alt">
+    <p><a href="foo" class="leaf"><span class="alt">[file]</span></a> <a href="bar">filebrowse-alt leaf</a></p>
+
+    <p><a href="foo" class="leafnode"><span class="alt">/</span></a> <a href="bar">filebrowse-alt leafnode</a></p>
+
+    <p><a href="foo" class="expanded"><span class="alt">/-</span></a> <a href="bar">filebrowse-alt expanded</a></p>
+
+    <p><a href="foo" class="collapsed"><span class="alt">/+</span></a> <a href="bar">filebrowse-alt collapsed</a></p>
+  </div>
+  <p>To represent logical nesting, use ul/li:</p>
+
+  <div class="filebrowse">
+    <ul>
+      <li class="expanded">
+        <a href="foo">filebrowse expanded/</a>
+        <ul>
+          <li class="leaf"><a href="foo">filebrowse leaf</a></li>
+          <li class="leaf"><a href="foo">filebrowse leaf</a></li>
+        </ul>
+      </li>
+      <li class="expanded">
+        <a href="foo">filebrowse expanded/</a>
+        <ul>
+          <li class="expanded">
+            <a href="foo">filebrowse expanded/</a>
+            <ul>
+              <li class="leaf"><a href="foo">filebrowse leaf</a></li>
+            </ul>
+          </li>
+          <li class="collapsed"><a href="foo">filebrowse collapsed/</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <p>When it isn't possible actually to nest the markup (e.g., when tree must be smooshed across multiple table rows), use the tier<var>n</var> classes on the containing blocks. The table below also shows (nonsensical) usage for sortable columns - note arrow widgets in table headings:
+  </p>
+  <table width="100%" cellpadding="3" cellspacing="2" class="filebrowse-alt">
+  <tr>
+    <th>Select</th>
+    <th>Name</th>
+    <th>Files</th>
+    <th>Reserved by</th>
+    <th><a href="foo" class="sortup"><span class="alt">[sort up]</span></a> <a href="bar">Last modified</a></th>
+    <th><a href="foo" class="sortdown"><span class="alt">[sort down]</span></a> <a href="bar">Astrological sign</a></th>
+  </tr>
+  <tr class="a">
+    <td><input type="checkbox"/></td>
+    <td>
+      <div class="tier1">
+        <a href="#" class="collapsedwaste" title="collapse"><span class="alt">[-] waste/</span></a> <a href="#"
+                                                                                                       title="view details">Trash</a>
+      </div>
+    </td>
+    <td>0</td>
+    <td>
+    </td>
+    <td>3/28/2002</td>
+    <td>username</td>
+  </tr>
+  <tr class="b">
+    <td><input type="checkbox"/></td>
+    <td>
+      <div class="tier1">
+        <a href="#" class="expanded" title="collapse"><span class="alt">[-] /</span></a> <a href="#"
+                                                                                            title="view details">User Docs</a>
+      </div>
+    </td>
+    <td>0</td>
+    <td>
+    </td>
+    <td>3/28/2002</td>
+    <td>username</td>
+  </tr>
+  <tr class="a">
+    <td><input type="checkbox"/></td>
+    <td>
+      <div class="tier2">
+        <a href="#" class="collapsed" title="expand"><span class="alt">[+] /</span></a> <a href="#"
+                                                                                           title="view details">Installation Guides</a>
+      </div>
+    </td>
+    <td>3</td>
+    <td>
+    </td>
+    <td>3/28/2002</td>
+    <td>username</td>
+  </tr>
+  <tr class="b">
+    <td><input type="checkbox"/></td>
+    <td>
+      <div class="tier2">
+        <a href="#" class="collapsed" title="expand"><span class="alt">[+] /</span></a> <a href="#"
+                                                                                           title="view details">User Manual</a>
+      </div>
+    </td>
+    <td>4</td>
+    <td>
+    </td>
+    <td>3/28/2002</td>
+    <td>username</td>
+  </tr>
+  <tr class="a">
+    <td><input type="checkbox"/></td>
+    <td>
+      <div class="tier2">
+        <a href="#" class="collapsed" title="expand"><span class="alt">[+] /</span></a> <a href="#"
+                                                                                           title="view details">HOWTOs</a>
+      </div>
+    </td>
+    <td>8</td>
+    <td>
+    </td>
+    <td>3/28/2002</td>
+    <td>username</td>
+  </tr>
+  <tr class="b">
+    <td><input type="checkbox"/></td>
+    <td>
+      <div class="tier1">
+        <a href="#" class="expanded" title="collapse"><span class="alt">[-] /</span></a> <a href="drill-detail2.html"
+                                                                                            title="view details">Releases</a>
+      </div>
+    </td>
+    <td>0</td>
+    <td>
+    </td>
+    <td>3/28/2002</td>
+    <td>username</td>
+  </tr>
+  <tr class="a">
+    <td><input type="checkbox"/></td>
+    <td>
+      <div class="tier2">
+        <a href="#" class="expanded" title="collapse"><span class="alt">[-] /</span></a> <a href="drill-detail.html"
+                                                                                            title="view details">Stable releases</a>
+      </div>
+    </td>
+    <td>2</td>
+    <td>
+    </td>
+    <td>3/28/2002</td>
+    <td>username</td>
+  </tr>
+  <tr class="b">
+    <td><input type="checkbox"/></td>
+    <td>
+      <div class="tier3">
+        <a href="#" class="collapsed" title="expand"><span class="alt">[+] /</span></a> <a href="#"
+                                                                                           title="view details">2.0.0</a>
+      </div>
+    </td>
+    <td>18</td>
+    <td>
+    </td>
+    <td>3/28/2002</td>
+    <td>username</td>
+  </tr>
+  <tr class="a">
+    <td><input type="checkbox"/></td>
+    <td>
+      <div class="tier3">
+        <a href="#" class="collapsed" title="expand"><span class="alt">[+] /</span></a> <a href="#"
+                                                                                           title="view details">1.2.5</a>
+      </div>
+    </td>
+    <td>12</td>
+    <td>
+    </td>
+    <td>3/28/2002</td>
+    <td>username</td>
+  </tr>
+  <tr class="b">
+    <td><input type="checkbox"/></td>
+    <td>
+      <div class="tier3">
+        <a href="#" class="leaf" title="download"><span class="alt">[download]</span></a> <a href="#"
+                                                                                             title="view details">snapshot-12302.tar</a>
+      </div>
+    </td>
+    <td>--</td>
+    <td>username</td>
+    <td>3/28/2002</td>
+    <td>username</td>
+  </tr>
+  <tr class="a">
+    <td><input type="checkbox"/></td>
+    <td>
+      <div class="tier3">
+        <a href="#" class="leaf" title="download"><span class="alt">[download]</span></a> <a href="#"
+                                                                                             title="view details">snapshot-12402.tar</a>
+      </div>
+    </td>
+    <td>--</td>
+    <td>username</td>
+    <td>3/28/2002</td>
+    <td>username</td>
+  </tr>
+  <tr class="b">
+    <td><input type="checkbox"/></td>
+    <td>
+      <div class="tier2">
+        <a href="#" class="expanded" title="collapse"><span class="alt">[-] /</span></a> <a href="#"
+                                                                                            title="view details">Developer Releases</a>
+      </div>
+    </td>
+    <td>0</td>
+    <td>
+    </td>
+    <td>3/28/2002</td>
+    <td>username</td>
+  </tr>
+  <tr class="a">
+    <td><input type="checkbox"/></td>
+    <td>
+      <div class="tier3">
+        <a href="#" class="collapsed" title="expand"><span class="alt">[+] /</span></a> <a href="#"
+                                                                                           title="view details">2.0.0TR15</a>
+      </div>
+    </td>
+    <td>16</td>
+    <td>
+    </td>
+    <td>3/28/2002</td>
+    <td>username</td>
+  </tr>
+  <tr class="b">
+    <td><input type="checkbox"/></td>
+    <td>
+      <div class="tier3">
+        <a href="#" class="collapsed" title="expand"><span class="alt">[+] /</span></a> <a href="#"
+                                                                                           title="view details">1.2.3</a>
+      </div>
+    </td>
+    <td>9</td>
+    <td>
+    </td>
+    <td>3/28/2002</td>
+    <td>username</td>
+  </tr>
+  </table>
+  <div class="functnbar3">
+    <input type="submit" value="Add folder" name="#"/>&#160;<input type="submit" value="Add file" name="#"/>&#160;<input
+          type="submit" value="Reserve selected" name="#"/>&#160;<input type="submit" value="Delete selected" name="#"/>&#160;
+  </div>
+  <p>There are more kinds of trees. Above is a directory tree. The approach lends itself easily to other kinds of trees; just change the class of the parent from "filebrowse" to something else and supply appropriate icons. The markup remains the same.</p>
+  <!--
+  [[div class="userbrowse"]]
+  [[p]]
+  [[a href="foo" class="leaf"]]userbrowse leaf[[/a]]
+  [[/p]]
+  [[p]]
+  [[a href="foo" class="leafnode"]]userbrowse leafnode/[[/a]]
+  [[/p]]
+  [[p]]
+  [[a href="foo" class="expanded"]]userbrowse expanded/[[/a]]
+  [[/p]]
+  [[p]]
+  [[a href="foo" class="collapsed"]]userbrowse collapsed/[[/a]]
+  [[/p]]
+  [[/div]]
+  -->
+  </div>
+  <div class="h4" id="messaging">
+    <h4>Messaging</h4>
+
+    <p>The usages above show linked icons with textual fallbacks, suitable for use as widgets. Simpler cases follow, where the image is essentially decorative, inactive, and amplifies a textual message.</p>
+
+    <div class="errormessage">
+      <p><strong>Dude[tte]! That's not right!</strong></p>
+
+      <p>In which we throw in another line to conceal a limitation in lesser browsers whereby the icon will be cut off if the associated text isn't tall enough. Use at least 2 lines to avoid. Or use Mozilla.</p>
+    </div>
+    <p class="errormark">This seems to be about where you messed up. You can put this class on a table cell to mark it, f'rinstance.</p>
+
+    <div class="warningmessage">
+      <p><strong>Dude[tte]? Are you really sure about this?</strong></p>
+
+      <p>What I'm saying is that you can't undo this once it's done, so be careful ok?</p>
+
+      <p><input type="submit" name="cancel" value="Cancel"/> <input type="submit" name="cancel" value="Do it"/></p>
+    </div>
+    <p class="warningmark"><strong>Core temperature approaching 11.</strong></p>
+
+    <div class="donemessage">
+      <p><strong>Dude[tte]! It worked!</strong></p>
+
+      <p>Species 834196b scheduled for termination. So long!</p>
+    </div>
+    <p class="donemark">Excellent.</p>
+
+    <div class="infomessage">
+      <p><strong>By the way, Dude[tte], it's Tuesday on Mars</strong></p>
+
+      <p>This is a public service announcement of no great import.</p>
+    </div>
+    <p class="infomark">Soup is delicious <em>and</em> nutritious.</p>
+
+    <div class="docinfo">
+      <p>This is all about the document.</p>
+
+      <p>It was modified at some time or another.</p>
+    </div>
+    <div class="dirinfo">
+      <p>This is all about the directory.</p>
+
+      <p>It was modified at some time or another.</p>
+    </div>
+  </div>
+  </div>
+  <div class="h4" id="feedingtime">
+    <h4>Feeding time at the Zoo</h4>
+    <table border="1" cellspacing="2" cellpadding="3" width="100%" class="grid">
+      <tr>
+        <th>Edit</th>
+        <th>Name</th>
+        <th>Summary</th>
+        <th>Categories</th>
+      </tr>
+      <tr class="a">
+        <td>foo</td>
+        <td><a href="#">Chunk</a></td>
+        <td>A project for HTML documents and information</td>
+        <td>none</td>
+      </tr>
+      <tr class="b">
+        <td>nuk</td>
+        <td><a href="#">Testproject</a></td>
+        <td>Test project for beta test</td>
+        <td>none</td>
+      </tr>
+      <tr class="a">
+        <td>dur</td>
+        <td><a href="#">Applethrasher</a></td>
+        <td>A project for HTML documents and information</td>
+        <td>none</td>
+      </tr>
+    </table>
+  </div>
+  <div class="h4" id="waitmore">
+    <h4>But wait there's more</h4>
+
+    <p><acronym
+            title="Cascading Style Sheets">CSS</acronym> came late to the TLA party. It competes with Christ Saves Souls and
+      <a href="http://www.reprod-ent.com/bullserv.html#only">Certified Semen Services</a>, but Cascading Style Sheets is more than a religion or animal husbandry commodity: much more. It is a way out of the bloated, murky HTML generation and maintenance business. It is a way to cut the transmission times of your screens to perhaps 30% what they are now, depending on how bad you've been. It is a way to stop using HTML tables except for train schedule-style tabular data. No more font tags, no more spacer GIFs, no more GIFs of text. And still look good - better even than with all the painful crufty techniques just mentioned.
+    </p>
+
+    <p>Now enriched with solid gold.</p>
+  </div>
+  </div>
+  <div class="functnbar2">
+    <input type="submit" name="eventSubmit_doSearch" value="Submit"/>
+    <input type="submit" value="Save this query" name="eventSubmit_doRedirecttosavequery"/>
+  </div>
+</div>
+</td>
+</tr>
+</table>
+<div id="footer">
+  <table border="0" cellspacing="0" cellpadding="4">
+    <tr>
+      <td><a href="http://www.collab.net/special/clickpbc0502.html" id="poweredby"><span
+              class="alt">Powered by CollabNet</span></a></td>
+      <td>
+        <a href="#">Domain home</a> | <a href="#">Site FAQ</a> | <a href="#">Feedback</a> | <a href="#">Terms of use</a>
+
+        <p>Copyright &#169; 1999-2002 FooBar, Inc. FooBar and BazBat are registered metasyntactic variables.</p>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

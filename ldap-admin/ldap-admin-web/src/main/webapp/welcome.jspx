@@ -1,0 +1,66 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:jsp="http://java.sun.com/JSP/Page"
+      xmlns:s="/struts-tags">
+<jsp:directive.page contentType="text/html"/>
+<head>
+  <title>User Admin</title>
+  <s:head/>
+</head>
+<body>
+<p>
+  <i>Please report any bugs to <a href="mailto:drift@java.no">drift@java.no</a>.</i>
+</p>
+<div id="search" class="h3">
+  <div class="h4">
+    <h4>Search</h4>
+  </div>
+  <s:if test="%{queryMessage}">
+    <p>${queryMessage}</p>
+  </s:if>
+  <s:form id="search">
+    <div class="axial">
+      <table>
+        <tr>
+          <th>Query</th>
+          <td>
+            <s:textfield name="query"/>
+            <p>Searches all name-related fields</p>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="functnbar3">
+      <s:submit action="search" value="Search"/>
+    </div>
+  </s:form>
+</div>
+
+<div id="lookup" class="h3">
+  <div class="h4">
+    <h4>Lookup</h4>
+  </div>
+  <s:if test="%{noUserFound}">
+    <p>
+      No user found.
+    </p>
+  </s:if>
+  <s:form id="lookup" action="lookup">
+    <div class="axial">
+      <table>
+        <tr>
+          <th>Uid</th>
+          <td><s:textfield name="uid"/></td>
+        </tr>
+        <tr>
+          <th>Mail</th>
+          <td><s:textfield name="mail"/></td>
+        </tr>
+      </table>
+    </div>
+    <div class="functnbar3">
+      <s:submit id="submit" value="Lookup"/>
+    </div>
+  </s:form>
+</div>
+</body>
+</html>

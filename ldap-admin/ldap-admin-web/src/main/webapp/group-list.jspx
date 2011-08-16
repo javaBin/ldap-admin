@@ -1,0 +1,23 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:jsp="http://java.sun.com/JSP/Page"
+      xmlns:s="/struts-tags"
+      xmlns:tabletags="/tabletags">
+<jsp:directive.page contentType="text/html"/>
+<head>
+  <title>Groups</title>
+</head>
+<body>
+<tabletags:table value="groups">
+  <tabletags:column title="Name">
+    <s:property value="name"/>
+  </tabletags:column>
+  <tabletags:column title="Description">
+    <s:property value="description"/>
+  </tabletags:column>
+  <tabletags:column>
+    <s:url id="details" value="/groups/%{name}"/>
+    <a id="group-${name}" href="${details}">Details</a>
+  </tabletags:column>
+</tabletags:table>
+</body>
+</html>

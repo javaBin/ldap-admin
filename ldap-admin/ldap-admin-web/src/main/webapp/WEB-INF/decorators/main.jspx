@@ -1,0 +1,112 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:decorator="http://www.opensymphony.com/sitemesh/decorator"
+      xmlns:s="/struts-tags"
+      xmlns:page="http://www.opensymphony.com/sitemesh/page"
+      xmlns:jsp="http://java.sun.com/JSP/Page">
+<head>
+  <jsp:directive.page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8"/>
+  <title><decorator:title/></title>
+  <s:url id="tigris" value="/css/tigris.css"/>
+  <s:url id="inst" value="/css/inst.css"/>
+  <s:url id="ldapadmin" value="/css/ldapadmin.css"/>
+  <style type="text/css">
+    @import "${tigris}";
+    @import "${inst}";
+    @import "${ldapadmin}";
+  </style>
+  <decorator:head/>
+  <s:url id="baseurl" value="/"/>
+  <script type="text/javascript">var baseurl = "${baseurl}"</script>
+  <script type="text/javascript" src="${baseurl}javascript/common.js"></script>
+  <script type="text/javascript" src="${baseurl}javascript/prototype.js"></script>
+  <script type="text/javascript" src="${baseurl}javascript/user-service.js"></script>
+  <script type="text/javascript" src="${baseurl}javascript/user-request-service.js"></script>
+  <script type="text/javascript" src="${baseurl}javascript/ldapadmin.js"></script>
+</head>
+<body class="composite">
+<div id="banner">
+  <table border="0" cellspacing="0" cellpadding="8" width="100%">
+    <tr>
+      <td class="header-left">javaBin</td>
+      <td>
+      </td>
+    </tr>
+  </table>
+</div>
+<s:url id="login" value="/authentication"/>
+<s:url id="logout" value="/authentication/logout"/>
+<s:url id="index" value="/"/>
+<s:url id="userRequestShowForm" value="/forms/user-requests"/>
+<s:url id="userRequestAdminList" value="/user-requests"/>
+<s:url id="userList" value="/users"/>
+<s:url id="groupList" value="/groups"/>
+<s:url id="reports" value="/reports"/>
+<s:url id="userShow" value="/users/%{#authentication.getRemoteUser()}"/>
+<div id="breadcrumbs">
+<!--
+  <a href="#">Foo</a> &gt; <a href="#">Bar</a> &gt; <a href="#">Baz</a> &gt; Bat
+-->
+  <s:if test="!#authentication.isLoggedIn()">
+    <a id="login" href="${login}">Login</a>
+  </s:if>
+  <s:else>
+    Logged in as <s:property value="#authentication.getRemoteUser()"/>
+    | <a id="userShow" href="${userShow}">Update Profile</a>
+    | <a id="logout" href="${logout}">Logout</a>
+  </s:else>
+</div>
+
+<table id="main" width="100%" cellspacing="0" cellpadding="4" border="0">
+  <tr valign="top">
+    <td id="leftcol" width="20%">
+      <div id="navcolumn">
+        <div id="projecttools" class="toolgroup">
+          <div class="label">
+            <strong>Tools</strong>
+          </div>
+          <div class="body">
+            <div><a id="index" href="${index}">Welcome</a></div>
+            <div><a id="userRequestShowForm" href="${userRequestShowForm}">Request User</a></div>
+            <s:if test="#authentication.isLoggedIn()">
+              <div><a id="userList" href="${userList}">List Users</a></div>
+              <div><a id="groupList" href="${groupList}">List Groups</a></div>
+            </s:if>
+            <s:if test="#authorization.isLdapAdmin()">
+              <div>
+                Admin
+                <div><a id="userRequestList" href="${userRequestAdminList}">New User Requests</a></div>
+                <div><a id="reports" href="${reports}">Reports</a></div>
+              </div>
+            </s:if>
+          </div>
+        </div>
+      </div>
+      <div class="strut"> </div>
+    </td>
+    <td>
+      <div id="bodycol">
+        <div id="apphead">
+          <h2><decorator:title/></h2>
+        </div>
+        <div id="projecthome" class="app">
+          <decorator:body/>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<hr/>
+<div id="footer">
+  <div style="text-align:center;">
+    javaBin - Java Brukerforening i Norge |
+    <a href="mailto:styret@java.no">styret</a> |
+    <a href="mailto:portal@java.no">redaksjon</a> |
+    <a href="http://www4.java.no/web/show.do?page=8;11">om javaBin</a> |
+    <a href="http://www4.java.no/web/show.do?page=28;30">om java.no</a> |
+    <a href="http://www4.java.no/web/show.do?page=124;328">om JavaZone</a>
+  </div>
+</div>
+
+</body>
+</html>
